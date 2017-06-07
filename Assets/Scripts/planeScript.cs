@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class planeScript : MonoBehaviour {
 
@@ -12,9 +13,12 @@ public class planeScript : MonoBehaviour {
     [SerializeField]
     private Animator anim; // to play animation of the plane
     private float forwardSpeed = 3f; // speed of the plane that fly in the forward direction
+    [SerializeField]
     private float boundSpeed = 4f; // speed of the plane that bounce up
     private bool didFlap; // 
     public bool isAlive;
+
+    private Button flapButton;
 
     void Awake()
     {
@@ -24,6 +28,8 @@ public class planeScript : MonoBehaviour {
             instance = this; // the birdscript is the instance
         }
         isAlive = true;
+        flapButton = GameObject.FindGameObjectWithTag("FlapButton").GetComponent<Button>();
+        flapButton.onClick.AddListener(()=> FlapThePlane());
     }
 
 	// Use this for initialization
@@ -44,6 +50,24 @@ public class planeScript : MonoBehaviour {
                 didFlap = false; // flap once
                 myRigidBody.velocity = new Vector2(0, boundSpeed); // (0, 4f)
                 anim.SetTrigger("Flap"); // setTriggner of the Animator
+
+                //float angle = 0;
+                //angle = Mathf.Lerp(0, -45, -myRigidBody.velocity.y / 7);
+                //transform.rotation = Quaternion.Euler(0, 0, angle);
+            }
+
+            if (myRigidBody.velocity.y >= 0) // make rotation for the plane
+            {
+                //transform.rotation = Quaternion.Euler(0, 0, 0);
+                float angle = 0;
+                angle = Mathf.Lerp(0, 45, myRigidBody.velocity.y / 7);
+                transform.rotation = Quaternion.Euler(0, 0, angle);
+            }
+            else
+            {
+                float angle = 0;
+                angle = Mathf.Lerp(0, -45, -myRigidBody.velocity.y / 7);
+                transform.rotation = Quaternion.Euler(0, 0, angle);
             }
         }
 	}

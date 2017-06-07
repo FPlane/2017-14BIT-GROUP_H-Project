@@ -30,6 +30,8 @@ public class planeScript : MonoBehaviour {
         isAlive = true;
         flapButton = GameObject.FindGameObjectWithTag("FlapButton").GetComponent<Button>();
         flapButton.onClick.AddListener(()=> FlapThePlane());
+
+        setCameraX();
     }
 
 	// Use this for initialization
@@ -71,6 +73,16 @@ public class planeScript : MonoBehaviour {
             }
         }
 	}
+
+    void setCameraX()
+    {
+        cameraScript.offsetX = (Camera.main.transform.position.x - transform.position.x) - 1f;
+    }
+
+    public float GetPositionX()
+    {
+        return transform.position.x;
+    }
 
     public void FlapThePlane()
     {

@@ -11,7 +11,8 @@ public class planeScript : MonoBehaviour {
     private Rigidbody2D myRigidBody;
 
     [SerializeField]
-    private Animator anim; // to play animation of the plane
+    public Animator anim; // to play animation of the plane
+
     private float forwardSpeed = 3f; // speed of the plane that fly in the forward direction
     [SerializeField]
     private float boundSpeed = 4f; // speed of the plane that bounce up

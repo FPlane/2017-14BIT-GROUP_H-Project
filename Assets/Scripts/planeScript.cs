@@ -23,8 +23,10 @@ public class planeScript : MonoBehaviour {
 
     void Awake()
     {
+        Screen.fullScreen = !Screen.fullScreen;
+        Screen.SetResolution(480, 800, false);
         // if script isn't point to is instance
-        if(instance == null)
+        if (instance == null)
         {
             instance = this; // the birdscript is the instance
         }

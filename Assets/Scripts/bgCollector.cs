@@ -20,20 +20,42 @@ public class bgCollector : MonoBehaviour {
         lastBGX = backgrounds[0].transform.position.x;
         lastGroundX = grounds[0].transform.position.x;
 
-        for (int i = 5; i < backgrounds.Length; i++)
+        for (int i = 1; i < backgrounds.Length; i++)
         {
-            if (lastBGX < backgrounds[i].transform.position.y)
+            if (lastBGX < backgrounds[i].transform.position.x)
             {
-                lastBGX = backgrounds[i].transform.position.y;
+                lastBGX = backgrounds[i].transform.position.x;
             }
         }
 
-        for (int i = 5; i < grounds.Length; i++)
+        for (int i = 1; i < grounds.Length; i++)
         {
-            if (lastGroundX < grounds[i].transform.position.y)
+            if (lastGroundX < grounds[i].transform.position.x)
             {
-                lastGroundX = grounds[i].transform.position.y;
+                lastGroundX = grounds[i].transform.position.x;
             }
         }
+
+        void OnTriggerEnter2D(Collider2D target)
+        {
+            if (target.tag == "Background")
+            {
+                Vector3 temp = target.transform.position;
+                float width = ((BoxCollider2D)target).size.x;
+                temp.x = lastBGX + width;
+                target.transform.position = temp;
+                lastBGX = temp.x;
+            }
+            else if (target.tag == "Ground")
+            {
+                Vector3 temp = target.transform.position;
+                float width = ((BoxCollider2D)target).size.x;
+                temp.x = lastGroundX + width;
+                target.transform.position = temp;
+                lastGroundX = temp.x;
+            }
+        }
+
+
     }
 }

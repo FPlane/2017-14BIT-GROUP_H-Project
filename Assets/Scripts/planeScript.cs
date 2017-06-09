@@ -94,5 +94,17 @@ public class planeScript : MonoBehaviour {
 
     }
 
+    void OnCollisionEnter2D(Collision2D target)
+    {
+        if(target.gameObject.tag == "Ground")
+        {
+            if(isAlive)
+            {
+                isAlive = false;
+                anim.SetTrigger("die_plane");
+            }
+        }
+    }
+
 
 }

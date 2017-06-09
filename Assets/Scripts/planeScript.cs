@@ -45,12 +45,26 @@ public class planeScript : MonoBehaviour {
                 myRigidBody.velocity = new Vector2(0, boundSpeed); // (0, 4f)
                 anim.SetTrigger("Flap"); // setTriggner of the Animator
             }
+
+
         }
 	}
+
+    void setCameraX()
+    {
+        cameraScript.offsetX = (Camera.main.transform.position.x - transform.position.x) - 1f;
+    }
+
+    public float GetPositionX()
+    {
+        return transform.position.x;
+    }
 
     public void FlapThePlane()
     {
         didFlap = true; 
 
     }
+
+
 }

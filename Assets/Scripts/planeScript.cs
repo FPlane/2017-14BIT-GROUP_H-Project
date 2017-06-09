@@ -21,6 +21,8 @@ public class planeScript : MonoBehaviour {
 
     private Button flapButton;
 
+
+
     void Awake()
     {
         // if script isn't point to is instance
@@ -52,6 +54,20 @@ public class planeScript : MonoBehaviour {
                 didFlap = false; // flap once
                 myRigidBody.velocity = new Vector2(0, boundSpeed); // (0, 4f)
                 anim.SetTrigger("Flap"); // setTriggner of the Animator
+            }
+
+            if (myRigidBody.velocity.y >= 0) // make rotation for the plane
+            {
+                //transform.rotation = Quaternion.Euler(0, 0, 0);
+                float angle = 0;
+                angle = Mathf.Lerp(0, 45, myRigidBody.velocity.y / 7); // prone up 45 degree
+                transform.rotation = Quaternion.Euler(0, 0, angle);
+            }
+            else
+            {
+                float angle = 0;
+                angle = Mathf.Lerp(0, -45, -myRigidBody.velocity.y / 7); // prone down 45 degree
+                transform.rotation = Quaternion.Euler(0, 0, angle);
             }
         }
 	}

@@ -40,6 +40,7 @@ public class planeScript : MonoBehaviour {
         flapButton.onClick.AddListener(() => FlapThePlane());
 
         setCameraX();
+
     }
 
 	// Use this for initialization
@@ -105,6 +106,4 @@ public class planeScript : MonoBehaviour {
             }
         }
     }
-
-
 }

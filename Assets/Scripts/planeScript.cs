@@ -14,12 +14,18 @@ public class planeScript : MonoBehaviour {
 
     [SerializeField]
     private Animator anim; // to play animation of the plane
-    private float forwardSpeed = 3f; // speed of the plane that fly in the forward direction
-    private float boundSpeed = 4f; // speed of the plane that bounce up
+
+    [SerializeField]
+    private float forwardSpeed; // speed of the plane that fly in the forward direction
+    [SerializeField]
+    private float boundSpeed; // speed of the plane that bounce up
     private bool didFlap; 
     public bool isAlive;
 
     private Button flapButton;
+
+    public int proneUp;
+    public int proneDown;
 
     void Awake()
     {
@@ -52,6 +58,20 @@ public class planeScript : MonoBehaviour {
                 didFlap = false; // flap once
                 myRigidBody.velocity = new Vector2(0, boundSpeed); // (0, 4f)
                 anim.SetTrigger("Flap"); // setTriggner of the Animator
+            }
+
+            if (myRigidBody.velocity.y >= 0) // make rotation for the plane
+            {
+                //transform.rotation = Quaternion.Euler(0, 0, 0);
+                float angle = 0;
+                angle = Mathf.Lerp(0, proneUp, myRigidBody.velocity.y / 7); // prone up 45 degree
+                transform.rotation = Quaternion.Euler(0, 0, angle);
+            }
+            else
+            {
+                float angle = 0;
+                angle = Mathf.Lerp(0, -proneDown, -myRigidBody.velocity.y / 7); // prone down 45 degree
+                transform.rotation = Quaternion.Euler(0, 0, angle);
             }
         }
 	}

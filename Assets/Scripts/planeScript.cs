@@ -38,6 +38,8 @@ public class planeScript : MonoBehaviour {
 
         flapButton = GameObject.FindGameObjectWithTag("FlapButton").GetComponent<Button>();
         flapButton.onClick.AddListener(() => FlapThePlane());
+
+        setCameraX();
     }
 
 	// Use this for initialization

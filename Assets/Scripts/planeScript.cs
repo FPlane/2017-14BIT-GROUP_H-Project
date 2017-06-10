@@ -105,5 +105,14 @@ public class planeScript : MonoBehaviour {
                 anim.SetTrigger("die_plane");
             }
         }
+
+        if (target.gameObject.tag == "Pipe")
+        {
+            if (isAlive)
+            {
+                isAlive = false;
+                anim.SetTrigger("die_plane");
+            }
+        }
     }
 }

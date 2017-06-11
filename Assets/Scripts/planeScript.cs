@@ -103,20 +103,6 @@ public class planeScript : MonoBehaviour {
 
     }
 
-    // Trigger something when the plane hit the BoxCollision
-    void OnTriggerEnter2D(Collider2D target)
-    {
-        // check if the plane hit the ground
-        if (target.gameObject.tag == "Ground")
-        {
-            // check if plane is alive
-            if(isAlive)
-            {
-                // set the plane alive = false to stop the game
-                isAlive = false;
-                audiosource.PlayOneShot(diedClip); // play the died sound
-            }
-        }
-    }
+   
 
 }

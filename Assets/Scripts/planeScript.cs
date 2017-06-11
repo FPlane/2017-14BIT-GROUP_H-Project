@@ -27,6 +27,13 @@ public class planeScript : MonoBehaviour {
     public int proneUp;
     public int proneDown;
 
+    [SerializeField]
+    private AudioSource audiosource;
+
+    [SerializeField]
+    private AudioClip flapClip, scoreClip, diedClip;
+
+
     void Awake()
     {
         // if script isn't point to is instance
@@ -60,6 +67,7 @@ public class planeScript : MonoBehaviour {
             {
                 didFlap = false; // flap once
                 myRigidBody.velocity = new Vector2(0, boundSpeed); // (0, 4f)
+                audiosource.PlayOneShot(flapClip);
                 anim.SetTrigger("Flap"); // setTriggner of the Animator
             }
 
@@ -102,6 +110,7 @@ public class planeScript : MonoBehaviour {
             if(isAlive)
             {
                 isAlive = false;
+                audiosource.PlayOneShot(diedClip);
                 anim.SetTrigger("die_plane");
             }
         }
@@ -111,6 +120,7 @@ public class planeScript : MonoBehaviour {
             if (isAlive)
             {
                 isAlive = false;
+                audiosource.PlayOneShot(diedClip);
                 anim.SetTrigger("die_plane");
             }
         }

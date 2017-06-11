@@ -33,6 +33,8 @@ public class planeScript : MonoBehaviour {
     [SerializeField]
     private AudioClip flapClip, scoreClip, diedClip;
 
+    public int score;
+
 
     void Awake()
     {
@@ -123,6 +125,15 @@ public class planeScript : MonoBehaviour {
                 audiosource.PlayOneShot(diedClip);
                 anim.SetTrigger("die_plane");
             }
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D target)
+    {
+        if (target.gameObject.tag == "PipeHolder")
+        {
+            score++;
+            audiosource.PlayOneShot(scoreClip);
         }
     }
 }

@@ -27,6 +27,14 @@ public class planeScript : MonoBehaviour {
     public int proneUp;
     public int proneDown;
 
+
+    [SerializeField]
+    private AudioSource audiosource;
+
+    [SerializeField]
+    private AudioClip flapClip, diedClip, scoreClip;
+
+
     void Awake()
     {
         // if script isn't point to is instance
@@ -59,6 +67,7 @@ public class planeScript : MonoBehaviour {
             {
                 didFlap = false; // flap once
                 myRigidBody.velocity = new Vector2(0, boundSpeed); // (0, 4f)
+                audiosource.PlayOneShot(flapClip);
                 anim.SetTrigger("Flap"); // setTriggner of the Animator
             }
 
@@ -94,5 +103,20 @@ public class planeScript : MonoBehaviour {
 
     }
 
+    // Trigger something when the plane hit the BoxCollision
+    void OnTriggerEnter2D(Collider2D target)
+    {
+        // check if the plane hit the ground
+        if (target.gameObject.tag == "Ground")
+        {
+            // check if plane is alive
+            if(isAlive)
+            {
+                // set the plane alive = false to stop the game
+                isAlive = false;
+                audiosource.PlayOneShot(diedClip); // play the died sound
+            }
+        }
+    }
 
 }

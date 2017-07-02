@@ -19,7 +19,7 @@ public class planeScript : MonoBehaviour {
     private float forwardSpeed; // speed of the plane that fly in the forward direction
     [SerializeField]
     private float boundSpeed; // speed of the plane that bounce up
-    private bool didFlap; 
+    public bool didFlap; 
     public bool isAlive;
 
     private Button flapButton;
@@ -27,6 +27,7 @@ public class planeScript : MonoBehaviour {
     public int proneUp;
     public int proneDown;
 
+    public float flapFuel;
 
     [SerializeField]
     private AudioSource audiosource;
@@ -46,7 +47,7 @@ public class planeScript : MonoBehaviour {
 
         flapButton = GameObject.FindGameObjectWithTag("FlapButton").GetComponent<Button>();
         flapButton.onClick.AddListener(() => FlapThePlane());
-
+        Time.timeScale = 1.0f;
         setCameraX();
     }
 
@@ -65,10 +66,16 @@ public class planeScript : MonoBehaviour {
 
             if(didFlap) 
             {
+
                 didFlap = false; // flap once
                 myRigidBody.velocity = new Vector2(0, boundSpeed); // (0, 4f)
                 audiosource.PlayOneShot(flapClip);
                 anim.SetTrigger("Flap"); // setTriggner of the Animator
+
+                //if(fuel.instance != null)
+                //{
+                //    flapFuel = fuel.instance.planeFuel -= 10f;
+                //}
             }
 
             if (myRigidBody.velocity.y >= 0) // make rotation for the plane
@@ -103,22 +110,6 @@ public class planeScript : MonoBehaviour {
 
     }
 
-    // Trigger something when the plane hit the BoxCollision
-    //void OnTriggerEnter2D(Collider2D target)
-    //{
-    //    // check if the plane hit the ground
-    //    if (target.gameObject.tag == "Ground")
-    //    {
-    //        // check if plane is alive
-    //        if(isAlive)
-    //        {
-    //            // set the plane alive = false to stop the game
-    //            isAlive = false;
-    //            audiosource.PlayOneShot(diedClip); // play the died sound
-    //        }
-    //    }
-    //}
-
     void OnCollisionEnter2D(Collision2D target)
     {
         if (target.gameObject.tag == "Ground")
@@ -126,6 +117,10 @@ public class planeScript : MonoBehaviour {
             if (isAlive)
             {
                 isAlive = false;
+
+                // freeze game - prevent plane fuel keep 
+                Time.timeScale = 0.0f;
+                Destroy(flapButton);
                 audiosource.PlayOneShot(diedClip);
             }
         }

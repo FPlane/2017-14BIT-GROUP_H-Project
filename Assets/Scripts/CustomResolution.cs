@@ -4,14 +4,35 @@ using UnityEngine;
 
 public class CustomResolution : MonoBehaviour {
 
+    public static CustomResolution instance;
+
+    [SerializeField]
+    private int screenHeight;
+
+    [SerializeField]
+    private int screenWidth;
+
 	// Use this for initialization
 	void Start () {
         Screen.fullScreen = !Screen.fullScreen;
-        Screen.SetResolution(480, 800, false);
+        Screen.SetResolution(screenWidth, screenHeight, false);
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    void Awake()
+    {
+        makeSingleIT();
+    }
+
+    void makeSingleIT()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
 }

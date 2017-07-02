@@ -22,15 +22,20 @@ public class fuel : MonoBehaviour {
     {
         if (planeScript.instance != null)
         { 
+            if(planeFuel > 10)
+            {
+                planeFuel = 10f;
+            }
             if (planeFuel > 0)
             {
+
                 planeFuel -= fuelBurn * Time.deltaTime;
                 slider.value = planeFuel;
                 if(planeScript.instance != null)
                 {
                     if(planeScript.instance.didFlap)
                     {
-                        planeFuel -= fuelBurn * 1f;
+                        planeFuel -= fuelBurn * 0.5f;
                     }
                 }
             }

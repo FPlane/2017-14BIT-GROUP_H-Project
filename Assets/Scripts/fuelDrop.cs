@@ -9,6 +9,7 @@ public class fuelDrop : MonoBehaviour {
     {
         if (target.tag == "Player")
         {
+            Destroy(gameObject);
           if(gameObject.tag == "FuelDrop")
             {
                 GameObject.Find("fuelSlider").GetComponent<fuel>().planeFuel += 2f;

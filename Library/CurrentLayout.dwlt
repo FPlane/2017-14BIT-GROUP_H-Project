@@ -542,19 +542,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scripts
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 90
   m_LastFolders:
-  - Assets/Scripts
+  - Assets
   m_LastFoldersGridSize: 90
-  m_LastProjectPath: C:\Users\User\Documents\2017-14BIT-GROUP_H-Project
+  m_LastProjectPath: C:\Users\EDI\Google Drive\AUT\Y3\S3\Project Management_\Practical
+    Project\2017-14BIT-GROUP_H-Project
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: ec250000
-    m_LastClickedID: 9708
-    m_ExpandedIDs: 00000000a225000000ca9a3bffffff7f
+    m_SelectedIDs: b4250000
+    m_LastClickedID: 9652
+    m_ExpandedIDs: 00000000b425000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -582,7 +583,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a2250000
+    m_ExpandedIDs: 00000000b4250000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -609,7 +610,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000e6240000ee240000f024000038f8fffff2240000a4270000f8240000142700001e27000008250000882700003a260000e8260000b625000078270000aa25000018250000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -663,7 +664,7 @@ MonoBehaviour:
     y: 92
     width: 497
     height: 610
-  m_ScrollPosition: {x: 0, y: 33.266735}
+  m_ScrollPosition: {x: 0, y: 0}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: 317
@@ -698,9 +699,9 @@ MonoBehaviour:
     height: 590
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 5a260000
-    m_LastClickedID: 9818
-    m_ExpandedIDs: 9afbffff00000000482600007c260000
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 9efbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -755,9 +756,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 31.581093, y: -3.0599818, z: 0}
+    m_Target: {x: 20.188145, y: -1.445242, z: 0}
     speed: 2
-    m_Value: {x: 31.581093, y: -3.0599818, z: 0}
+    m_Value: {x: 20.188145, y: -1.445242, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -784,9 +785,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 60.982555
+    m_Target: 36.227898
     speed: 2
-    m_Value: 60.982555
+    m_Value: 36.227898
   m_Ortho:
     m_Target: 1
     speed: 2

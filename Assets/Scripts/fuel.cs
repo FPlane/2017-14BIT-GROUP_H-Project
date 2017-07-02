@@ -6,15 +6,21 @@ using UnityEngine.UI;
 public class fuel : MonoBehaviour {
 
     public static fuel instance;
+
+    [SerializeField]
+    private GameObject fuelDrop;
     
+
     private Slider slider;
     public float planeFuel = 10f;
     public float fuelBurn = 1f;
+
 
     // Use this for initialization
     void Awake()
     {
         getReference();
+        
     }
 
     // Update is called once per frame
@@ -51,7 +57,7 @@ public class fuel : MonoBehaviour {
     void getReference()
     {
         slider = GameObject.Find("fuelSlider").GetComponent<Slider>();
-       
+
         slider.minValue = 0f;
         slider.maxValue = planeFuel;
         slider.value = slider.maxValue;

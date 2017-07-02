@@ -36,12 +36,19 @@ public class planeScript : MonoBehaviour {
     private AudioClip flapClip, diedClip, scoreClip;
 
 
+    // Fuel collector
     private GameObject[] fuelDrop;
     private GameObject Drop;
-    private int distance = 10;
+    public int distance;
     private float lastDropX;
-    private float DropMaxHeight = 5f;
-    private float DropMinHeight = -5f;
+    public float DropMaxHeight;
+    public float DropMinHeight;
+    public int flewDistance;
+    //
+
+
+    public Text distanceText;
+    public float currentDistance;
 
     void Awake()
     {
@@ -57,11 +64,13 @@ public class planeScript : MonoBehaviour {
         Time.timeScale = 1.0f;
         setCameraX();
 
+
+        // Fuel collector
         fuelDrop = GameObject.FindGameObjectsWithTag("FuelDrop");
         for (int i = 0; i < fuelDrop.Length; i++)
         {
             Vector3 temp = fuelDrop[i].transform.position;
-            temp.y = Random.Range(DropMinHeight, DropMaxHeight);
+            temp.y = Random.Range(-DropMinHeight, DropMaxHeight);
             fuelDrop[i].transform.position = temp;
         }
 
@@ -78,7 +87,7 @@ public class planeScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        
 	}
 	
 	// Update is called once per frame
@@ -89,7 +98,13 @@ public class planeScript : MonoBehaviour {
             temp.x = temp.x + forwardSpeed * Time.deltaTime; // move the plane to the right
             transform.position = temp; // re-assign the plane's position 
 
-            if(didFlap) 
+
+            // Flight distance
+            currentDistance += Time.deltaTime*10;
+            distanceText.text = currentDistance.ToString("F1") + " m";
+
+
+            if (didFlap) 
             {
 
                 didFlap = false; // flap once
@@ -154,14 +169,14 @@ public class planeScript : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D target)
     {
-
+        // Fuel collector
         if (target.tag == "FuelDrop")
         {
 
 
             Vector3 temp = target.transform.position;
             temp.x = lastDropX + distance;
-            temp.y = Random.Range(DropMinHeight, DropMaxHeight);
+            temp.y = Random.Range(-DropMinHeight, DropMaxHeight);
             target.transform.position = temp;
             lastDropX = temp.x;
         }

@@ -47,7 +47,7 @@ public class planeScript : MonoBehaviour {
 
         flapButton = GameObject.FindGameObjectWithTag("FlapButton").GetComponent<Button>();
         flapButton.onClick.AddListener(() => FlapThePlane());
-
+        Time.timeScale = 1.0f;
         setCameraX();
     }
 
@@ -136,6 +136,7 @@ public class planeScript : MonoBehaviour {
 
                 // freeze game - prevent plane fuel keep 
                 Time.timeScale = 0.0f;
+                Destroy(flapButton);
                 audiosource.PlayOneShot(diedClip);
             }
         }

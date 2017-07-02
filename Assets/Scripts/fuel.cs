@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class fuel : MonoBehaviour {
 
     public static fuel instance;
-
+    
     private Slider slider;
     public float planeFuel = 10f;
     public float fuelBurn = 1f;
@@ -36,6 +36,7 @@ public class fuel : MonoBehaviour {
             }
             else
             {
+                // plane stop after emptying fuel
                 planeScript.instance.isAlive = false;
                 
             }
@@ -45,6 +46,7 @@ public class fuel : MonoBehaviour {
     void getReference()
     {
         slider = GameObject.Find("fuelSlider").GetComponent<Slider>();
+       
         slider.minValue = 0f;
         slider.maxValue = planeFuel;
         slider.value = slider.maxValue;

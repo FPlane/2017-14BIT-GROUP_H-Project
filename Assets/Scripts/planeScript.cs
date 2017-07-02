@@ -134,7 +134,7 @@ public class planeScript : MonoBehaviour {
             {
                 isAlive = false;
 
-                // freeze game - prevent plane fuel keep burning
+                // freeze game - prevent plane fuel keep 
                 Time.timeScale = 0.0f;
                 audiosource.PlayOneShot(diedClip);
             }

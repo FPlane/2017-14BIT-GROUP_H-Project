@@ -51,4 +51,6 @@ public class fuel : MonoBehaviour {
         slider.maxValue = planeFuel;
         slider.value = slider.maxValue;
     }
+
+
 }

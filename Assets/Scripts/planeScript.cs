@@ -36,6 +36,13 @@ public class planeScript : MonoBehaviour {
     private AudioClip flapClip, diedClip, scoreClip;
 
 
+    private GameObject[] fuelDrop;
+    private GameObject Drop;
+    private int distance = 10;
+    private float lastDropX;
+    private float DropMaxHeight = 5f;
+    private float DropMinHeight = -5f;
+
     void Awake()
     {
         // if script isn't point to is instance
@@ -49,6 +56,24 @@ public class planeScript : MonoBehaviour {
         flapButton.onClick.AddListener(() => FlapThePlane());
         Time.timeScale = 1.0f;
         setCameraX();
+
+        fuelDrop = GameObject.FindGameObjectsWithTag("FuelDrop");
+        for (int i = 0; i < fuelDrop.Length; i++)
+        {
+            Vector3 temp = fuelDrop[i].transform.position;
+            temp.y = Random.Range(DropMinHeight, DropMaxHeight);
+            fuelDrop[i].transform.position = temp;
+        }
+
+        lastDropX = fuelDrop[0].transform.position.x;
+
+        for (int i = 1; i < fuelDrop.Length; i++)
+        {
+            if (lastDropX < fuelDrop[i].transform.position.x)
+            {
+                lastDropX = fuelDrop[i].transform.position.x;
+            }
+        }
     }
 
 	// Use this for initialization
@@ -123,6 +148,22 @@ public class planeScript : MonoBehaviour {
                 Destroy(flapButton);
                 audiosource.PlayOneShot(diedClip);
             }
+        }
+
+    }
+
+    void OnTriggerEnter2D(Collider2D target)
+    {
+
+        if (target.tag == "FuelDrop")
+        {
+
+
+            Vector3 temp = target.transform.position;
+            temp.x = lastDropX + distance;
+            temp.y = Random.Range(DropMinHeight, DropMaxHeight);
+            target.transform.position = temp;
+            lastDropX = temp.x;
         }
     }
 

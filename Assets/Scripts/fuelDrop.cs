@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class fuelDrop : MonoBehaviour {
 
+    public float FuelUnit;
+
     // add 2 fuel unit to the plane
     void OnTriggerEnter2D(Collider2D target)
     {
         if (target.tag == "Player")
         {
-             Destroy(gameObject);
-          if(gameObject.tag == "FuelDrop")
+            //gameObject.GetComponent<Renderer>().enabled = false;
+          
+            if (gameObject.tag == "FuelDrop")
             {
-                GameObject.Find("fuelSlider").GetComponent<fuel>().planeFuel += 2f;
+                GameObject.Find("fuelSlider").GetComponent<fuel>().planeFuel += FuelUnit;
             }
         }
     }

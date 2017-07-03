@@ -37,6 +37,7 @@ public class towerCollector : MonoBehaviour
     {
         if (target.tag == "PipeHolder")
         {
+            Time.timeScale = 0.0f;
             Vector3 temp = target.transform.position;
             temp.x = lastTowerX + distance;
             //temp.y = Random.Range(DropMinHeight, DropMaxHeight);

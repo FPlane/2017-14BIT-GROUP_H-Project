@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/gameplay.unity
+- path: D:/University/Year3/HK3/stuff for flappyplane/2017-14BIT-GROUP_H-Project/Assets/gameplay.unity
   isLoaded: 1
   isActive: 1

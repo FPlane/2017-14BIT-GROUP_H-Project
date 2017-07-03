@@ -15,7 +15,7 @@ public class SpawnerTower : MonoBehaviour {
     {
         yield return new WaitForSeconds(2);
         Vector3 temp = towerHolder.transform.position;
-        Instantiate(towerHolder, transform.position, Quaternion.identity);
+        Instantiate(towerHolder, temp, Quaternion.identity);
         StartCoroutine(Spawner());
     }
 }

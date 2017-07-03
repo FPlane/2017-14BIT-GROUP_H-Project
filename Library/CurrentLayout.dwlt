@@ -70,8 +70,13 @@ MonoBehaviour:
   m_MinSize: {x: 277, y: 312}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
+<<<<<<< HEAD
   controlID: 155
 --- !u!114 &4
+=======
+  controlID: 52
+--- !u!114 &5
+>>>>>>> f72d6af7f670ae524370d02cf7d6f964f7bde6ff
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_PrefabParentObject: {fileID: 0}
@@ -95,7 +100,11 @@ MonoBehaviour:
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
   controlID: 10
+<<<<<<< HEAD
 --- !u!114 &5
+=======
+--- !u!114 &6
+>>>>>>> f72d6af7f670ae524370d02cf7d6f964f7bde6ff
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_PrefabParentObject: {fileID: 0}
@@ -261,7 +270,11 @@ MonoBehaviour:
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
   controlID: 11
+<<<<<<< HEAD
 --- !u!114 &12
+=======
+--- !u!114 &13
+>>>>>>> f72d6af7f670ae524370d02cf7d6f964f7bde6ff
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_PrefabParentObject: {fileID: 0}
@@ -284,8 +297,13 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
+<<<<<<< HEAD
   controlID: 12
 --- !u!114 &13
+=======
+  controlID: 130
+--- !u!114 &14
+>>>>>>> f72d6af7f670ae524370d02cf7d6f964f7bde6ff
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_PrefabParentObject: {fileID: 0}
@@ -599,6 +617,7 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/Scripts/TowerControlling
   m_LastFoldersGridSize: 90
+<<<<<<< HEAD
   m_LastProjectPath: D:\University\Year3\HK3\2017-14BIT-GROUP_H-Project
   m_IsLocked: 0
   m_FolderTreeState:
@@ -606,6 +625,16 @@ MonoBehaviour:
     m_SelectedIDs: de2d0000
     m_LastClickedID: 11742
     m_ExpandedIDs: 00000000aa2400002825000000ca9a3bffffff7f
+=======
+  m_LastProjectPath: C:\Users\EDI\Google Drive\AUT\Y3\S3\Project Management_\Practical
+    Project\2017-14BIT-GROUP_H-Project
+  m_IsLocked: 0
+  m_FolderTreeState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 92250000
+    m_LastClickedID: 9618
+    m_ExpandedIDs: 000000000e25000000ca9a3bffffff7f
+>>>>>>> f72d6af7f670ae524370d02cf7d6f964f7bde6ff
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: TowerControlling
@@ -633,7 +662,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000aa240000
+=======
+    m_ExpandedIDs: 000000000e250000
+>>>>>>> f72d6af7f670ae524370d02cf7d6f964f7bde6ff
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -710,10 +743,17 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 946
     y: 91
     width: 420
     height: 303
+=======
+    x: 1423
+    y: 92
+    width: 497
+    height: 610
+>>>>>>> f72d6af7f670ae524370d02cf7d6f964f7bde6ff
   m_ScrollPosition: {x: 0, y: 0}
   m_InspectorMode: 0
   m_PreviewResizer:
@@ -748,10 +788,17 @@ MonoBehaviour:
     width: 299
     height: 265
   m_TreeViewState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 72}
     m_SelectedIDs: 
     m_LastClickedID: 0
     m_ExpandedIDs: 3299fcff4e18ffffd2fbffff0000000022260000
+=======
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 02250000
+    m_LastClickedID: 0
+    m_ExpandedIDs: 9afbffff000000004626000088260000
+>>>>>>> f72d6af7f670ae524370d02cf7d6f964f7bde6ff
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -806,9 +853,15 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: 16.927042, y: -1.3122143, z: 0}
     speed: 2
     m_Value: {x: 16.927042, y: -1.3122143, z: 0}
+=======
+    m_Target: {x: 8.064694, y: 0.5241376, z: 0}
+    speed: 2
+    m_Value: {x: 8.064694, y: 0.5241376, z: 0}
+>>>>>>> f72d6af7f670ae524370d02cf7d6f964f7bde6ff
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -835,9 +888,15 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
+<<<<<<< HEAD
     m_Target: 11.439783
     speed: 2
     m_Value: 11.439783
+=======
+    m_Target: 34.852314
+    speed: 2
+    m_Value: 34.852314
+>>>>>>> f72d6af7f670ae524370d02cf7d6f964f7bde6ff
   m_Ortho:
     m_Target: 1
     speed: 2

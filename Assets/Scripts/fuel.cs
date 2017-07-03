@@ -12,7 +12,7 @@ public class fuel : MonoBehaviour {
     
 
     private Slider slider;
-    public float planeFuel = 10f;
+    public float planeFuel;
     public float fuelBurn = 1f;
 
 
@@ -28,7 +28,7 @@ public class fuel : MonoBehaviour {
     {
         if (planeScript.instance != null)
         { 
-            if(planeFuel > 10)
+            if(planeFuel > 10f)
             {
                 planeFuel = 10f;
             }

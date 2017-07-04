@@ -36,15 +36,15 @@ public class planeScript : MonoBehaviour {
     private AudioClip flapClip, diedClip, scoreClip;
 
 
-    // Fuel collector
-    private GameObject[] fuelDrop;
-    private GameObject Drop;
-    public int distance;
-    private float lastDropX;
-    public float DropMaxHeight;
-    public float DropMinHeight;
-    public int flewDistance;
-    //
+    //// Fuel collector
+    //private GameObject[] fuelDrop;
+    //private GameObject Drop;
+    //public int distance;
+    //private float lastDropX;
+    //public float DropMaxHeight;
+    //public float DropMinHeight;
+    //public int flewDistance;
+    ////
 
 
     public Text distanceText;
@@ -63,26 +63,6 @@ public class planeScript : MonoBehaviour {
         flapButton.onClick.AddListener(() => FlapThePlane());
         Time.timeScale = 1.0f;
         setCameraX();
-
-
-        // Fuel collector
-        fuelDrop = GameObject.FindGameObjectsWithTag("FuelDrop");
-        for (int i = 0; i < fuelDrop.Length; i++)
-        {
-            Vector3 temp = fuelDrop[i].transform.position;
-            temp.y = Random.Range(-DropMinHeight, DropMaxHeight);
-            fuelDrop[i].transform.position = temp;
-        }
-
-        lastDropX = fuelDrop[0].transform.position.x;
-
-        for (int i = 1; i < fuelDrop.Length; i++)
-        {
-            if (lastDropX < fuelDrop[i].transform.position.x)
-            {
-                lastDropX = fuelDrop[i].transform.position.x;
-            }
-        }
     }
 
 	// Use this for initialization
@@ -110,12 +90,11 @@ public class planeScript : MonoBehaviour {
                 didFlap = false; // flap once
                 myRigidBody.velocity = new Vector2(0, boundSpeed); // (0, 4f)
                 audiosource.PlayOneShot(flapClip);
-                anim.SetTrigger("Flap"); // setTriggner of the Animator
-
-                //if(fuel.instance != null)
-                //{
-                //    flapFuel = fuel.instance.planeFuel -= 10f;
-                //}
+                anim.SetTrigger("Flap"); // setTriggner of the 
+                if(fuel.instance != null)
+                {
+                    fuel.instance.planeFuel -= fuel.instance.fuelBurn * flapFuel;
+                }
             }
 
             if (myRigidBody.velocity.y >= 0) // make rotation for the plane
@@ -182,17 +161,6 @@ public class planeScript : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D target)
     {
-        // Fuel collector
-        if (target.tag == "FuelDrop")
-        {
-
-
-            Vector3 temp = target.transform.position;
-            temp.x = lastDropX + distance;
-            temp.y = Random.Range(-DropMinHeight, DropMaxHeight);
-            target.transform.position = temp;
-            lastDropX = temp.x;
-        }
 
         if (target.tag == "PipeHolder")
         {

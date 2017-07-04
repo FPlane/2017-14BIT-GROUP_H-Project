@@ -13,7 +13,7 @@ public class fuelDrop : MonoBehaviour {
         {
             //gameObject.GetComponent<Renderer>().enabled = false;
           
-            if (gameObject.tag == "FuelDrop")
+            if (gameObject.tag == "Pipe")
             {
                 GameObject.Find("fuelSlider").GetComponent<fuel>().planeFuel += FuelUnit;
             }

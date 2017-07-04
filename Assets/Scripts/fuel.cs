@@ -13,13 +13,17 @@ public class fuel : MonoBehaviour
 
 
     private Slider slider;
-    public float planeFuel;
+    public float planeFuel = 20f;
     public float fuelBurn = 1f;
 
 
     // Use this for initialization
     void Awake()
     {
+        if(instance == null)
+        {
+            instance = this;
+        }
         getReference();
 
     }
@@ -29,27 +33,21 @@ public class fuel : MonoBehaviour
     {
         if (planeScript.instance != null)
         {
-            if (planeFuel > 10f)
+            if (planeFuel > 20f)
             {
-                planeFuel = 10f;
+                planeFuel = 20f;
             }
-            if (planeFuel > 0)
+            else if (planeFuel > 0)
             {
 
                 planeFuel -= fuelBurn * Time.deltaTime;
                 slider.value = planeFuel;
-                if (planeScript.instance != null)
-                {
-                    if (planeScript.instance.didFlap)
-                    {
-                        planeFuel -= fuelBurn * 0.5f;
-                    }
-                }
+                
             }
             else
             {
                 // plane stop after emptying fuel
-                //planeScript.instance.isAlive = false;
+                planeScript.instance.isAlive = false;
 
             }
         }

@@ -14,7 +14,7 @@ public class towerSpawner : MonoBehaviour {
 	
 	IEnumerator Spawner()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
         Instantiate(towerHolder, transform.position, Quaternion.identity);
         StartCoroutine(Spawner());
     }

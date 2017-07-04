@@ -165,6 +165,19 @@ public class planeScript : MonoBehaviour {
             }
         }
 
+        if (target.gameObject.tag == "Pipe")
+        {
+            if (isAlive)
+            {
+                isAlive = false;
+
+                // freeze game - prevent plane fuel keep 
+                Time.timeScale = 0.0f;
+                Destroy(flapButton);
+       
+                audiosource.PlayOneShot(diedClip);
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D target)
@@ -179,6 +192,17 @@ public class planeScript : MonoBehaviour {
             temp.y = Random.Range(-DropMinHeight, DropMaxHeight);
             target.transform.position = temp;
             lastDropX = temp.x;
+        }
+
+        if (target.tag == "PipeHolder")
+        {
+            audiosource.PlayOneShot(scoreClip);
+        }
+
+        if (target.tag == "Pipe")
+        {
+            audiosource.PlayOneShot(scoreClip);
+            Destroy(GameObject.Find("TowerHolder 1(Clone)"));
         }
     }
 

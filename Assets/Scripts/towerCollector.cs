@@ -9,7 +9,7 @@ public class towerCollector : MonoBehaviour
     private GameObject Tower;
 
     [SerializeField]
-    private int distance; // go ben unity ay
+    private int distance;
     private float lastTowerX;
     public float DropMaxHeight;
     public float DropMinHeight;
@@ -39,7 +39,7 @@ public class towerCollector : MonoBehaviour
     {
         if (target.tag == "PipeHolder")
         {
-      
+         
             Vector3 temp = target.transform.position;
             temp.x = lastTowerX + distance;
             temp.y = Random.Range(DropMinHeight, DropMaxHeight);

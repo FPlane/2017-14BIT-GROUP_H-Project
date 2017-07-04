@@ -22,4 +22,12 @@ public class towerHolder : MonoBehaviour {
         temp.x -= speed * Time.deltaTime;
         transform.position = temp;
     }
+
+    void OnTriggerEnter2D(Collider2D target)
+    {
+        if(target.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
+    }
 }

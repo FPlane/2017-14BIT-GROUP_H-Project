@@ -202,7 +202,7 @@ public class planeScript : MonoBehaviour {
         if (target.tag == "Pipe")
         {
             audiosource.PlayOneShot(scoreClip);
-            Destroy(GameObject.Find("TowerHolder 1(Clone)"));
+            
         }
     }
 

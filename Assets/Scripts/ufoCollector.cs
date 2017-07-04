@@ -5,8 +5,12 @@ using UnityEngine;
 public class ufoCollector : MonoBehaviour {
 
     private GameObject[] ufoHolder;
-    private float distance = 5f;
+    private float distance = 10f; // doi cho nay cho khop vs distance 
     private float lastUFOx;
+
+
+
+
     public float ufoMinHeight;
     public float ufoMaxHeight;
 

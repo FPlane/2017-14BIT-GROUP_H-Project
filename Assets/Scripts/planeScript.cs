@@ -126,6 +126,8 @@ public class planeScript : MonoBehaviour {
                 anim.SetTrigger("die_plane");
             }
         }
+
+
     }
 
     void OnTriggerEnter2D(Collider2D target)

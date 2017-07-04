@@ -9,7 +9,7 @@ public class towerCollector : MonoBehaviour
     private GameObject Tower;
 
     [SerializeField]
-    private int distance = 25;
+    private int distance;
     private float lastTowerX;
     public float DropMaxHeight;
     public float DropMinHeight;

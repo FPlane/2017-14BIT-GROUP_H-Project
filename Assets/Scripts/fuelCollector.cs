@@ -7,7 +7,7 @@ public class fuelCollector : MonoBehaviour
 
     private GameObject[] fuelDrop;
     private GameObject Drop;
-    private int distance = 10;
+    private int distance = 40;
     private float lastDropX;
     private float DropMaxHeight = 5f;
     private float DropMinHeight = -5f;

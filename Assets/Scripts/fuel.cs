@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class fuel : MonoBehaviour {
+public class fuel : MonoBehaviour
+{
 
     public static fuel instance;
 
     [SerializeField]
     private GameObject fuelDrop;
-    
+
 
     private Slider slider;
     public float planeFuel;
@@ -20,15 +21,15 @@ public class fuel : MonoBehaviour {
     void Awake()
     {
         getReference();
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         if (planeScript.instance != null)
-        { 
-            if(planeFuel > 10f)
+        {
+            if (planeFuel > 10f)
             {
                 planeFuel = 10f;
             }
@@ -37,9 +38,9 @@ public class fuel : MonoBehaviour {
 
                 planeFuel -= fuelBurn * Time.deltaTime;
                 slider.value = planeFuel;
-                if(planeScript.instance != null)
+                if (planeScript.instance != null)
                 {
-                    if(planeScript.instance.didFlap)
+                    if (planeScript.instance.didFlap)
                     {
                         planeFuel -= fuelBurn * 0.5f;
                     }
@@ -48,8 +49,8 @@ public class fuel : MonoBehaviour {
             else
             {
                 // plane stop after emptying fuel
-                planeScript.instance.isAlive = false;
-                
+                //planeScript.instance.isAlive = false;
+
             }
         }
     }

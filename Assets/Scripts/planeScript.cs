@@ -82,6 +82,7 @@ public class planeScript : MonoBehaviour {
             // Flight distance
             currentDistance += Time.deltaTime*10;
             distanceText.text = currentDistance.ToString("F1") + " m";
+            // add this to the pause panel
 
 
             if (didFlap) 

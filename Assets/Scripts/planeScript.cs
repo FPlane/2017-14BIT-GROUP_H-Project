@@ -35,6 +35,9 @@ public class planeScript : MonoBehaviour {
     [SerializeField]
     private AudioClip flapClip, diedClip, scoreClip;
 
+    [SerializeField]
+    private AudioClip itemClip;
+
 
     //// Fuel collector
     //private GameObject[] fuelDrop;
@@ -170,7 +173,7 @@ public class planeScript : MonoBehaviour {
 
         if (target.tag == "Pipe")
         {
-            audiosource.PlayOneShot(scoreClip);
+            audiosource.PlayOneShot(itemClip);
             
         }
     }

@@ -13,8 +13,9 @@ public class fuel : MonoBehaviour
 
 
     private Slider slider;
-    public float planeFuel = 30f;
-    public float fuelBurn = 0.2f;
+    public float maxFuel;
+    public float planeFuel;
+    public float fuelBurn;
 
 
     // Use this for initialization
@@ -33,9 +34,9 @@ public class fuel : MonoBehaviour
     {
         if (planeScript.instance != null)
         {
-            if (planeFuel > 30f)
+            if (planeFuel > maxFuel)
             {
-                planeFuel = 30f;
+                planeFuel = maxFuel;
             }
             else if (planeFuel > 0)
             {

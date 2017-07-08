@@ -48,7 +48,7 @@ public class fuel : MonoBehaviour
             else
             {
                 // plane stop after emptying fuel
-                planeScript.instance.isAlive = false;
+                //planeScript.instance.isAlive = false;
 
             }
         }

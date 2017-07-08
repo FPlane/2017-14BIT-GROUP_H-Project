@@ -1,24 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class gamePlayMananger : MonoBehaviour {
-    public static gamePlayMananger instance;
-    void Awake()
+
+    [SerializeField]
+    private Button GuideButton;
+
+    private void Awake()
     {
-        makeSingleIT();
+        Time.timeScale = 0f;
     }
 
-    void makeSingleIT()
+    public void Guide_Button()
     {
-        if(instance != null)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
+        Time.timeScale = 1f;
+        GuideButton.gameObject.SetActive(false);
     }
+
 }

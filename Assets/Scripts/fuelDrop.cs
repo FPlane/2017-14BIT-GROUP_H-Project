@@ -4,29 +4,51 @@ using UnityEngine;
 
 public class fuelDrop : MonoBehaviour {
 
-    private float FuelUnit = 5f;
+    public static fuelDrop intance;
+
+    private float FuelUnit = 10f;
+
+    public bool flag;
+
+    GameObject square = GameObject.Find("Square");
 
     // initiation variable once
-    void Start()
+
+    void Awake()
+    {
+        //flag = false;
+        if (intance == null)
+        {
+            intance = this;
+        }
+        print(flag);
+    }
+
+    void Update()
     {
 
-        bool flag = false;
 
-        // if player's fuel is lower than 5
+        //if player's fuel is lower than 5
         // give them second change to continue to play by giving them 30 fuel unit
         // after that fuelunit return to default by setting fuel unit to 5f
 
-        if(fuel.instance.planeFuel <= 5)
-        {
-            FuelUnit += 30f;
-            flag = true;
-        }
-        if(flag == true)
-        {
+        //if (flag == false)
+        //{
+        //    if (fuel.instance.planeFuel < 5.0f)
+        //    { 
+                
+        //        flag = true;
+        //    }
+        //    FuelUnit += 30f;
+        //}
+        //else if (flag == true)
+        //{
+        //    FuelUnit += 5f;
+        //}
 
-            FuelUnit += 5f;
-        }
+
     }
+
 
     // add 2 fuel unit to the plane
     void OnTriggerEnter2D(Collider2D target)

@@ -35,16 +35,19 @@ public class planeScript : MonoBehaviour {
     [SerializeField]
     private AudioClip flapClip, diedClip, scoreClip;
 
+    [SerializeField]
+    private AudioClip itemClip;
 
-    // Fuel collector
-    private GameObject[] fuelDrop;
-    private GameObject Drop;
-    public int distance;
-    private float lastDropX;
-    public float DropMaxHeight;
-    public float DropMinHeight;
-    public int flewDistance;
-    //
+
+    //// Fuel collector
+    //private GameObject[] fuelDrop;
+    //private GameObject Drop;
+    //public int distance;
+    //private float lastDropX;
+    //public float DropMaxHeight;
+    //public float DropMinHeight;
+    //public int flewDistance;
+    ////
 
 
     public Text distanceText;
@@ -63,26 +66,6 @@ public class planeScript : MonoBehaviour {
         flapButton.onClick.AddListener(() => FlapThePlane());
         Time.timeScale = 1.0f;
         setCameraX();
-
-
-        // Fuel collector
-        fuelDrop = GameObject.FindGameObjectsWithTag("FuelDrop");
-        for (int i = 0; i < fuelDrop.Length; i++)
-        {
-            Vector3 temp = fuelDrop[i].transform.position;
-            temp.y = Random.Range(-DropMinHeight, DropMaxHeight);
-            fuelDrop[i].transform.position = temp;
-        }
-
-        lastDropX = fuelDrop[0].transform.position.x;
-
-        for (int i = 1; i < fuelDrop.Length; i++)
-        {
-            if (lastDropX < fuelDrop[i].transform.position.x)
-            {
-                lastDropX = fuelDrop[i].transform.position.x;
-            }
-        }
     }
 
 	// Use this for initialization
@@ -101,7 +84,9 @@ public class planeScript : MonoBehaviour {
 
             // Flight distance
             currentDistance += Time.deltaTime*10;
-            distanceText.text = currentDistance.ToString("F1") + " m";
+            
+            distanceText.text = currentDistance.ToString("F1") + " m"; // Sua cho nay F1 thanh 0
+            // add this to the pause panel
 
 
             if (didFlap) 
@@ -110,12 +95,11 @@ public class planeScript : MonoBehaviour {
                 didFlap = false; // flap once
                 myRigidBody.velocity = new Vector2(0, boundSpeed); // (0, 4f)
                 audiosource.PlayOneShot(flapClip);
-                anim.SetTrigger("Flap"); // setTriggner of the Animator
-
-                //if(fuel.instance != null)
-                //{
-                //    flapFuel = fuel.instance.planeFuel -= 10f;
-                //}
+                anim.SetTrigger("Flap"); // setTriggner of the 
+                if(fuel.instance != null)
+                {
+                    fuel.instance.planeFuel -= fuel.instance.fuelBurn * flapFuel;
+                }
             }
 
             if (myRigidBody.velocity.y >= 0) // make rotation for the plane
@@ -152,7 +136,7 @@ public class planeScript : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D target)
     {
-        if (target.gameObject.tag == "Ground")
+        if (target.gameObject.tag == "Ground" || target.gameObject.tag == "Pipe")
         {
             if (isAlive)
             {
@@ -162,37 +146,34 @@ public class planeScript : MonoBehaviour {
                 Time.timeScale = 0.0f;
                 Destroy(flapButton);
                 audiosource.PlayOneShot(diedClip);
+
+                if(gamePlayMananger.instance != null)
+                {
+                    gamePlayMananger.instance.hidePauseButton();
+                    gamePlayMananger.instance.showGameOverPanel();
+                }
+
+                print(currentDistance.ToString("0"));
             }
         }
 
-        if (target.gameObject.tag == "Pipe")
-        {
-            if (isAlive)
-            {
-                isAlive = false;
+        //if (target.gameObject.tag == "Pipe")
+        //{
+        //    if (isAlive)
+        //    {
+        //        isAlive = false;
 
-                // freeze game - prevent plane fuel keep 
-                Time.timeScale = 0.0f;
-                Destroy(flapButton);
+        //        // freeze game - prevent plane fuel keep 
+        //        Time.timeScale = 0.0f;
+        //        Destroy(flapButton);
        
-                audiosource.PlayOneShot(diedClip);
-            }
-        }
+        //        audiosource.PlayOneShot(diedClip);
+        //    }
+        //}
     }
 
     void OnTriggerEnter2D(Collider2D target)
     {
-        // Fuel collector
-        if (target.tag == "FuelDrop")
-        {
-
-
-            Vector3 temp = target.transform.position;
-            temp.x = lastDropX + distance;
-            temp.y = Random.Range(-DropMinHeight, DropMaxHeight);
-            target.transform.position = temp;
-            lastDropX = temp.x;
-        }
 
         if (target.tag == "PipeHolder")
         {
@@ -201,7 +182,7 @@ public class planeScript : MonoBehaviour {
 
         if (target.tag == "Pipe")
         {
-            audiosource.PlayOneShot(scoreClip);
+            audiosource.PlayOneShot(itemClip);
             
         }
     }

@@ -10,8 +10,6 @@ public class fuelDrop : MonoBehaviour {
 
     public bool flag;
 
-    GameObject square = GameObject.Find("Square");
-
     // initiation variable once
 
     void Awake()

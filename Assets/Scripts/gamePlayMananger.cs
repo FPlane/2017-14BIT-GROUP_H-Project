@@ -6,11 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class gamePlayMananger : MonoBehaviour {
 
+    public static gamePlayMananger instance;
+
     [SerializeField]
     private Button GuideButton;
 
     [SerializeField]
     private Text PauseUI;
+
+    [SerializeField]
+    private Text DistanceUI;
+
+    [SerializeField]
+    private Image FuelDropUI;
+
+    [SerializeField]
+    private Slider FuelSliderUI;
+
+    [SerializeField]
+    private GameObject gameOverPanel;
 
     public Button resetButton;
     public Button pauseButton;
@@ -18,10 +32,18 @@ public class gamePlayMananger : MonoBehaviour {
 
     void Start()
     {
-        
+        if(instance == null)
+        {
+            instance = this;
+        }
+
         Time.timeScale = 0;
         pauseButton.gameObject.SetActive(false);
-
+        DistanceUI.gameObject.SetActive(false);
+        resetButton.gameObject.SetActive(false);
+        FuelDropUI.gameObject.SetActive(false);
+        FuelSliderUI.gameObject.SetActive(false);
+    
     }
 
     public void Guide_Button()
@@ -29,6 +51,11 @@ public class gamePlayMananger : MonoBehaviour {
         Time.timeScale = 1;
         GuideButton.gameObject.SetActive(false);
         pauseButton.gameObject.SetActive(true);
+        DistanceUI.gameObject.SetActive(true);
+        resetButton.gameObject.SetActive(true);
+        FuelDropUI.gameObject.SetActive(true);
+        FuelSliderUI.gameObject.SetActive(true);
+
     }
 
     public void pause_Button()
@@ -49,10 +76,23 @@ public class gamePlayMananger : MonoBehaviour {
 
     public void reset_Button()
     {
-
+        
         GuideButton.gameObject.SetActive(false);
         SceneManager.LoadScene("gameplay");
-        
+    }
+
+    public void hidePauseButton()
+    {
+        pauseButton.gameObject.SetActive(false);
+    }
+
+    public void showGameOverPanel()
+    {
+        gameOverPanel.SetActive(true);
+        pauseButton.gameObject.SetActive(false);
+        DistanceUI.gameObject.SetActive(false);
+        FuelDropUI.gameObject.SetActive(false);
+        FuelSliderUI.gameObject.SetActive(false);
     }
 
 }

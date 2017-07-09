@@ -135,7 +135,7 @@ public class planeScript : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D target)
     {
-        if (target.gameObject.tag == "Ground")
+        if (target.gameObject.tag == "Ground" || target.gameObject.tag == "Pipe")
         {
             if (isAlive)
             {
@@ -145,22 +145,28 @@ public class planeScript : MonoBehaviour {
                 Time.timeScale = 0.0f;
                 Destroy(flapButton);
                 audiosource.PlayOneShot(diedClip);
+
+                if(gamePlayMananger.instance != null)
+                {
+                    gamePlayMananger.instance.hidePauseButton();
+                    gamePlayMananger.instance.showGameOverPanel();
+                }
             }
         }
 
-        if (target.gameObject.tag == "Pipe")
-        {
-            if (isAlive)
-            {
-                isAlive = false;
+        //if (target.gameObject.tag == "Pipe")
+        //{
+        //    if (isAlive)
+        //    {
+        //        isAlive = false;
 
-                // freeze game - prevent plane fuel keep 
-                Time.timeScale = 0.0f;
-                Destroy(flapButton);
+        //        // freeze game - prevent plane fuel keep 
+        //        Time.timeScale = 0.0f;
+        //        Destroy(flapButton);
        
-                audiosource.PlayOneShot(diedClip);
-            }
-        }
+        //        audiosource.PlayOneShot(diedClip);
+        //    }
+        //}
     }
 
     void OnTriggerEnter2D(Collider2D target)

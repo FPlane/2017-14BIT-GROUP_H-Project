@@ -84,7 +84,8 @@ public class planeScript : MonoBehaviour {
 
             // Flight distance
             currentDistance += Time.deltaTime*10;
-            distanceText.text = currentDistance.ToString("F1") + " m";
+            
+            distanceText.text = currentDistance.ToString("F1") + " m"; // Sua cho nay F1 thanh 0
             // add this to the pause panel
 
 
@@ -151,6 +152,8 @@ public class planeScript : MonoBehaviour {
                     gamePlayMananger.instance.hidePauseButton();
                     gamePlayMananger.instance.showGameOverPanel();
                 }
+
+                print(currentDistance.ToString("0"));
             }
         }
 

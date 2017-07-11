@@ -11,12 +11,15 @@ public class fuel : MonoBehaviour
     [SerializeField]
     private GameObject fuelDrop;
 
+    public GameObject[] fuelDropUI;
+
 
     private Slider slider;
     public float maxFuel;
     public float planeFuel;
     public float fuelBurn;
 
+    public SpriteRenderer rend;
 
     // Use this for initialization
     void Awake()
@@ -44,15 +47,23 @@ public class fuel : MonoBehaviour
                 planeFuel -= fuelBurn * Time.deltaTime;
                 slider.value = planeFuel;
                 
+
             }
             else
             {
                 // plane stop after emptying fuel
                 //planeScript.instance.isAlive = false;
+                //Time.timeScale = 0; added to showGameOverPanel
+                if (gamePlayMananger.instance != null)
+                {
+                    gamePlayMananger.instance.hidePauseButton();
+                    gamePlayMananger.instance.showGameOverPanel();
+                }
 
             }
         }
     }
+
 
     void getReference()
     {

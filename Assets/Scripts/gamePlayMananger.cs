@@ -18,7 +18,7 @@ public class gamePlayMananger : MonoBehaviour {
     private Text DistanceUI;
 
     [SerializeField]
-    private Image FuelDropUI;
+    private GameObject FuelDropUI;
 
     [SerializeField]
     private Slider FuelSliderUI;
@@ -88,11 +88,14 @@ public class gamePlayMananger : MonoBehaviour {
 
     public void showGameOverPanel()
     {
+        Time.timeScale = 0;
         gameOverPanel.SetActive(true);
         pauseButton.gameObject.SetActive(false);
         DistanceUI.gameObject.SetActive(false);
         FuelDropUI.gameObject.SetActive(false);
         FuelSliderUI.gameObject.SetActive(false);
+        Destroy(GameObject.Find("FuelDrop"));
+        Destroy(GameObject.Find("FuelDrop(Clone)"));
     }
 
 }

@@ -85,7 +85,7 @@ public class planeScript : MonoBehaviour {
             // Flight distance
             currentDistance += Time.deltaTime*10;
             
-            distanceText.text = currentDistance.ToString("F1") + " m"; // Sua cho nay F1 thanh 0
+            distanceText.text = currentDistance.ToString("F0") + " m"; // Sua cho nay F1 thanh 0
             // add this to the pause panel
 
 
@@ -136,6 +136,7 @@ public class planeScript : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D target)
     {
+        // if plane hit the ground or the pipes, run this codes
         if (target.gameObject.tag == "Ground" || target.gameObject.tag == "Pipe")
         {
             if (isAlive)
@@ -143,7 +144,7 @@ public class planeScript : MonoBehaviour {
                 isAlive = false;
 
                 // freeze game - prevent plane fuel keep 
-                Time.timeScale = 0.0f;
+                //Time.timeScale = 0;
                 Destroy(flapButton);
                 audiosource.PlayOneShot(diedClip);
 
@@ -153,7 +154,8 @@ public class planeScript : MonoBehaviour {
                     gamePlayMananger.instance.showGameOverPanel();
                 }
 
-                print(currentDistance.ToString("0"));
+               
+           
             }
         }
 
@@ -175,10 +177,10 @@ public class planeScript : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D target)
     {
 
-        if (target.tag == "PipeHolder")
-        {
-            audiosource.PlayOneShot(scoreClip);
-        }
+        //if (target.tag == "PipeHolder")
+        //{
+        //    audiosource.PlayOneShot(scoreClip);
+        //}
 
         if (target.tag == "Pipe")
         {

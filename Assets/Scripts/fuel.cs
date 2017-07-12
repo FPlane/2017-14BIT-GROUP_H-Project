@@ -19,7 +19,7 @@ public class fuel : MonoBehaviour
     public float planeFuel;
     public float fuelBurn;
 
-    public SpriteRenderer rend;
+    //public SpriteRenderer rend;
 
     // Use this for initialization
     void Awake()

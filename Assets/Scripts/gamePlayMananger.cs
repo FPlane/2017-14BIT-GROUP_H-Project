@@ -86,6 +86,7 @@ public class gamePlayMananger : MonoBehaviour {
         pauseButton.gameObject.SetActive(false);
     }
 
+
     public void showGameOverPanel()
     {
         Time.timeScale = 0;
@@ -95,7 +96,7 @@ public class gamePlayMananger : MonoBehaviour {
         FuelDropUI.gameObject.SetActive(false);
         FuelSliderUI.gameObject.SetActive(false);
         Destroy(GameObject.Find("FuelDrop"));
-        Destroy(GameObject.Find("FuelDrop(Clone)"));
+        //Destroy(GameObject.Find("FuelDrop(Clone)"));
     }
 
 }

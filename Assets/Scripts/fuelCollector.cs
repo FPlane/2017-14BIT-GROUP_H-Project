@@ -23,7 +23,7 @@ public class fuelCollector : MonoBehaviour
             fuelDrop[i].transform.position = temp;
         }
 
-        lastDropX = fuelDrop[0].transform.position.x;
+        LastDrop_PosX();
 
         for (int i = 1; i < fuelDrop.Length; i++)
         {
@@ -32,6 +32,11 @@ public class fuelCollector : MonoBehaviour
                 lastDropX = fuelDrop[i].transform.position.x;
             }
         }
+    }
+
+    private void LastDrop_PosX()
+    {
+        lastDropX = fuelDrop[0].transform.position.x;
     }
 
     void OnTriggerEnter2D(Collider2D target)

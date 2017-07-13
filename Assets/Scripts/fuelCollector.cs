@@ -5,6 +5,7 @@ using UnityEngine;
 public class fuelCollector : MonoBehaviour
 {
 
+
     private GameObject[] fuelDrop;
     private GameObject Drop;
     private int distance = 40;

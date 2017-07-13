@@ -35,6 +35,9 @@ public class planeScript : MonoBehaviour {
     [SerializeField]
     private AudioClip flapClip, diedClip, scoreClip;
 
+    [SerializeField]
+    private AudioClip itemClip;
+
 
     //// Fuel collector
     //private GameObject[] fuelDrop;
@@ -81,7 +84,9 @@ public class planeScript : MonoBehaviour {
 
             // Flight distance
             currentDistance += Time.deltaTime*10;
-            distanceText.text = currentDistance.ToString("F1") + " m";
+            
+            distanceText.text = currentDistance.ToString("F0") + " m"; // Sua cho nay F1 thanh 0
+            // add this to the pause panel
 
 
             if (didFlap) 
@@ -131,45 +136,55 @@ public class planeScript : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D target)
     {
-        if (target.gameObject.tag == "Ground")
+        // if plane hit the ground or the pipes, run this codes
+        if (target.gameObject.tag == "Ground" || target.gameObject.tag == "Pipe")
         {
             if (isAlive)
             {
                 isAlive = false;
 
                 // freeze game - prevent plane fuel keep 
-                Time.timeScale = 0.0f;
+                //Time.timeScale = 0;
                 Destroy(flapButton);
                 audiosource.PlayOneShot(diedClip);
+
+                if(gamePlayMananger.instance != null)
+                {
+                    gamePlayMananger.instance.hidePauseButton();
+                    gamePlayMananger.instance.showGameOverPanel();
+                }
+
+               
+           
             }
         }
 
-        if (target.gameObject.tag == "Pipe")
-        {
-            if (isAlive)
-            {
-                isAlive = false;
+        //if (target.gameObject.tag == "Pipe")
+        //{
+        //    if (isAlive)
+        //    {
+        //        isAlive = false;
 
-                // freeze game - prevent plane fuel keep 
-                Time.timeScale = 0.0f;
-                Destroy(flapButton);
+        //        // freeze game - prevent plane fuel keep 
+        //        Time.timeScale = 0.0f;
+        //        Destroy(flapButton);
        
-                audiosource.PlayOneShot(diedClip);
-            }
-        }
+        //        audiosource.PlayOneShot(diedClip);
+        //    }
+        //}
     }
 
     void OnTriggerEnter2D(Collider2D target)
     {
 
-        if (target.tag == "PipeHolder")
-        {
-            audiosource.PlayOneShot(scoreClip);
-        }
+        //if (target.tag == "PipeHolder")
+        //{
+        //    audiosource.PlayOneShot(scoreClip);
+        //}
 
         if (target.tag == "Pipe")
         {
-            audiosource.PlayOneShot(scoreClip);
+            audiosource.PlayOneShot(itemClip);
             
         }
     }

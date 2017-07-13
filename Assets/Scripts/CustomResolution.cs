@@ -1,38 +1,38 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
 
-public class CustomResolution : MonoBehaviour {
+//public class CustomResolution : MonoBehaviour {
 
-    public static CustomResolution instance;
+//    public static CustomResolution instance;
 
-    [SerializeField]
-    private int screenHeight;
+//    [SerializeField]
+//    private int screenHeight;
 
-    [SerializeField]
-    private int screenWidth;
+//    [SerializeField]
+//    private int screenWidth;
 
-	// Use this for initialization
-	void Start () {
-        Screen.fullScreen = !Screen.fullScreen;
-        Screen.SetResolution(screenWidth, screenHeight, false);
-    }
+//	// Use this for initialization
+//	void Start () {
+//        Screen.fullScreen = !Screen.fullScreen;
+//        Screen.SetResolution(screenWidth, screenHeight, false);
+//    }
 
-    void Awake()
-    {
-        makeSingleIT();
-    }
+//    void Awake()
+//    {
+//        makeSingleIT();
+//    }
 
-    void makeSingleIT()
-    {
-        if (instance != null)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-    }
-}
+//    void makeSingleIT()
+//    {
+//        if (instance != null)
+//        {
+//            Destroy(gameObject);
+//        }
+//        else
+//        {
+//            instance = this;
+//            DontDestroyOnLoad(gameObject);
+//        }
+//    }
+//}

@@ -2,7 +2,8 @@
 //using System.Collections.Generic;
 //using UnityEngine;
 
-//public class CustomResolution : MonoBehaviour {
+//public class CustomResolution : MonoBehaviour
+//{
 
 //    public static CustomResolution instance;
 
@@ -12,10 +13,13 @@
 //    [SerializeField]
 //    private int screenWidth;
 
-//	// Use this for initialization
-//	void Start () {
+//    // Use this for initialization
+//    void Start()
+//    {
 //        Screen.fullScreen = !Screen.fullScreen;
 //        Screen.SetResolution(screenWidth, screenHeight, false);
+//        //print(screenHeight);
+//        //print(screenWidth);
 //    }
 
 //    void Awake()

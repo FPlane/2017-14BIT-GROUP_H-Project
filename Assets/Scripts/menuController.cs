@@ -12,7 +12,7 @@ public class menuController : MonoBehaviour {
 
     public void playButton()
     {
-        SceneManager.LoadScene("gameplay");
+        SceneManager.LoadScene("guide");
     }
 
     //public void exitButton()

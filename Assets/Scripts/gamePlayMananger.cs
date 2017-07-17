@@ -37,13 +37,18 @@ public class gamePlayMananger : MonoBehaviour {
             instance = this;
         }
 
-        Time.timeScale = 0;
-        pauseButton.gameObject.SetActive(false);
-        DistanceUI.gameObject.SetActive(false);
-        resetButton.gameObject.SetActive(false);
-        FuelDropUI.gameObject.SetActive(false);
-        FuelSliderUI.gameObject.SetActive(false);
-    
+        //Time.timeScale = 0;
+        //pauseButton.gameObject.SetActive(false);
+        //DistanceUI.gameObject.SetActive(false);
+        //resetButton.gameObject.SetActive(false);
+        //FuelDropUI.gameObject.SetActive(false);
+        //FuelSliderUI.gameObject.SetActive(false);
+
+        pauseButton.gameObject.SetActive(true);
+        DistanceUI.gameObject.SetActive(true);
+        resetButton.gameObject.SetActive(true);
+        FuelDropUI.gameObject.SetActive(true);
+        FuelSliderUI.gameObject.SetActive(true);
     }
 
     public void Guide_Button()

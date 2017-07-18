@@ -2,34 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UFOHolder : MonoBehaviour {
-
-    public float speed;
+public class ufoXmove : MonoBehaviour {
 
     // Use this for initialization
-    void Start()
-    {
-
-    }
+    public float speed = 4f;
+	void Start () {
+		
+	}
 
     // Update is called once per frame
     void Update()
     {
-        _UFOMovement();
+        ufoMovement();
     }
 
-    void _UFOMovement()
+    void ufoMovement()
     {
         Vector3 temp = transform.position;
         temp.x -= speed * Time.deltaTime;
         transform.position = temp;
-    }
-
-    void OnTriggerEnter2D(Collider2D target)
-    {
-        if (target.tag == "Player")
-        {
-            Destroy(gameObject);
-        }
     }
 }

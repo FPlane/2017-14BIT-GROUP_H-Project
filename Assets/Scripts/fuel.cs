@@ -11,15 +11,23 @@ public class fuel : MonoBehaviour
     [SerializeField]
     private GameObject fuelDrop;
 
+    public GameObject[] fuelDropUI;
+
 
     private Slider slider;
+    public float maxFuel;
     public float planeFuel;
-    public float fuelBurn = 1f;
+    public float fuelBurn;
 
+    //public SpriteRenderer rend;
 
     // Use this for initialization
     void Awake()
     {
+        if(instance == null)
+        {
+            instance = this;
+        }
         getReference();
 
     }
@@ -29,31 +37,35 @@ public class fuel : MonoBehaviour
     {
         if (planeScript.instance != null)
         {
-            if (planeFuel > 10f)
+            if (planeFuel > maxFuel)
             {
-                planeFuel = 10f;
+                planeFuel = maxFuel;
             }
-            if (planeFuel > 0)
+            else if (planeFuel > 0)
             {
 
                 planeFuel -= fuelBurn * Time.deltaTime;
                 slider.value = planeFuel;
-                if (planeScript.instance != null)
-                {
-                    if (planeScript.instance.didFlap)
-                    {
-                        planeFuel -= fuelBurn * 0.5f;
-                    }
-                }
+                
+
             }
             else
             {
                 // plane stop after emptying fuel
                 //planeScript.instance.isAlive = false;
+                //Time.timeScale = 0; added to showGameOverPanel
+
+                // uncommnent this when release
+                //if (gamePlayMananger.instance != null)
+                //{
+                //    gamePlayMananger.instance.hidePauseButton();
+                //    gamePlayMananger.instance.showGameOverPanel();
+                //}
 
             }
         }
     }
+
 
     void getReference()
     {

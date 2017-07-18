@@ -63,25 +63,25 @@ public class menuController : MonoBehaviour {
 
     public void OnEnterQuitText()
     {
-        print(1);
+
         QuitText.GetComponent<Text>().color = Color.white;
     }
 
     public void onExitQuitText()
     {
-        print(2);
+    
         QuitText.GetComponent<Text>().color = Color.red;
     }
 
     public void OnEnterSettingText()
     {
-        print(1);
+ 
         SettingText.GetComponent<Text>().color = Color.white;
     }
 
     public void OnExitSettingText()
     {
-        print(2);
+  
         SettingText.GetComponent<Text>().color = Color.red;
     }
 

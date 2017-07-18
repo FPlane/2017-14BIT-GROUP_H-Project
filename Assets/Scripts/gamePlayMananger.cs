@@ -30,6 +30,8 @@ public class gamePlayMananger : MonoBehaviour {
     public Button pauseButton;
     public Button resumeButton;
 
+   
+
     void Start()
     {
         if(instance == null)

@@ -137,7 +137,7 @@ public class planeScript : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D target)
     {
         // if plane hit the ground or the pipes, run this codes
-        if (target.gameObject.tag == "Ground" || target.gameObject.tag == "Pipe")
+        if (target.gameObject.tag == "Ground" || target.gameObject.tag == "UFO" || target.gameObject.tag == "Pipe")
         {
             if (isAlive)
             {

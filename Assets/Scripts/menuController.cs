@@ -47,8 +47,11 @@ public class menuController : MonoBehaviour {
 #elif UNITY_STANDALONE_OSX
         print("Game is running on OSX");
         QuitText.gameObject.SetActive(true);
+<<<<<<< HEAD
 #elif UNITY_ANDROID || UNITY_IOS
         QuitText.gameObject.SetActive(false);
+=======
+>>>>>>> 612b80ac21303cb759deaf7a63f725c07292d025
 #endif
     }
 

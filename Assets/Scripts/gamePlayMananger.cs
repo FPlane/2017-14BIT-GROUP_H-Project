@@ -18,6 +18,9 @@ public class gamePlayMananger : MonoBehaviour {
     private Text DistanceUI;
 
     [SerializeField]
+    private Text GameOverUI;
+
+    [SerializeField]
     private GameObject FuelDropUI;
 
     [SerializeField]
@@ -36,14 +39,14 @@ public class gamePlayMananger : MonoBehaviour {
 
    
 
-    void Start()
+    void Awake()
     {
         if(instance == null)
         {
             instance = this;
         }
 
-        //Time.timeScale = 0;
+ 
         //pauseButton.gameObject.SetActive(false);
         //DistanceUI.gameObject.SetActive(false);
         //resetButton.gameObject.SetActive(false);
@@ -69,12 +72,23 @@ public class gamePlayMananger : MonoBehaviour {
 
     }
 
-    public void pause_Button()
+    public void pause_Button(int distance)
     {
         Time.timeScale = 0;
         pauseButton.gameObject.SetActive(false);
         resumeButton.gameObject.SetActive(true);
+        gameOverPanel.SetActive(true);
+        GameOverUI.gameObject.SetActive(false);
         PauseUI.gameObject.SetActive(true);
+
+        if(planeScript.instance != null)
+        {
+            LastDistanceText.text = planeScript.instance.distance.ToString("F0") + " m";
+        }
+
+        
+        
+        BestDistanceText.text = GameManager.instance.getHighScore().ToString("F0") + " m";
     }
 
     public void resume_Button()
@@ -83,6 +97,7 @@ public class gamePlayMananger : MonoBehaviour {
         resumeButton.gameObject.SetActive(false);
         pauseButton.gameObject.SetActive(true);
         PauseUI.gameObject.SetActive(false);
+        gameOverPanel.SetActive(false);
     }
 
     public void reset_Button()
@@ -98,7 +113,7 @@ public class gamePlayMananger : MonoBehaviour {
     }
 
 
-    public void showGameOverPanel(float currentDistance)
+    public void showGameOverPanel(int distance)
     {
         Time.timeScale = 0;
         gameOverPanel.SetActive(true);
@@ -106,15 +121,20 @@ public class gamePlayMananger : MonoBehaviour {
         DistanceUI.gameObject.SetActive(false);
         FuelDropUI.gameObject.SetActive(false);
         FuelSliderUI.gameObject.SetActive(false);
+
+        GameOverUI.gameObject.SetActive(true);
+        PauseUI.gameObject.SetActive(false);
+
+
         Destroy(GameObject.Find("FuelDrop"));
         //Destroy(GameObject.Find("FuelDrop(Clone)"));
 
         
-        LastDistanceText.text = currentDistance.ToString("F0") + " m";
-        if (currentDistance > GameManager.instance.getHighScore())
+        LastDistanceText.text = distance.ToString("F0") + " m";
+        if (distance > GameManager.instance.getHighScore())
         {
 
-            GameManager.instance.setHighScore(currentDistance);
+            GameManager.instance.setHighScore(distance);
         }
         BestDistanceText.text = GameManager.instance.getHighScore().ToString("F0") + " m";
 

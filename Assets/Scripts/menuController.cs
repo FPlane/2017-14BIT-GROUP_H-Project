@@ -4,13 +4,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 public class menuController : MonoBehaviour {
 
     public static menuController instance;
+
+    // GET UI ELEMENT
+    public GameObject plane;
+    public GameObject QuitButton;
+    public GameObject Title;
+    public GameObject BackButton;
+    public GameObject playmusic;
+
 
     public Text QuitText;
     public Text SettingText;
@@ -22,7 +27,7 @@ public class menuController : MonoBehaviour {
 
     public void setting_button()
     {
-        SceneManager.LoadScene(1);
+        
     }
 
     public void exitButton()
@@ -41,14 +46,9 @@ public class menuController : MonoBehaviour {
     {
         SettingText.GetComponent<Text>().color = Color.red;
         QuitText.GetComponent<Text>().color = Color.red;
+        BackButton.gameObject.SetActive(false);
+        playmusic.gameObject.SetActive(false);
 
-        #if UNITY_STANDALONE_WIN
-            print("Game is running on Windows");
-            QuitText.gameObject.SetActive(true);
-        #elif UNITY_STANDALONE_OSX
-            print("Game is running on OSX");
-            QuitText.gameObject.SetActive(true);
-        #endif
     }
 
     public void Quit_game()
@@ -58,30 +58,48 @@ public class menuController : MonoBehaviour {
     
     public void setting_game()
     {
-        SceneManager.LoadScene(1);
+        //SceneManager.LoadScene(1);
+        plane.gameObject.SetActive(false);
+        QuitButton.gameObject.SetActive(false);
+        Title.gameObject.SetActive(false);
+        SettingText.gameObject.SetActive(false);
+
+        playmusic.gameObject.SetActive(true);
+        BackButton.gameObject.SetActive(true);
+    }
+
+    public void backToMenu()
+    {
+        plane.gameObject.SetActive(true);
+        QuitButton.gameObject.SetActive(true);
+        Title.gameObject.SetActive(true);
+        SettingText.gameObject.SetActive(true);
+
+        playmusic.gameObject.SetActive(false);
+        BackButton.gameObject.SetActive(false);
     }
 
     public void OnEnterQuitText()
     {
-
+        
         QuitText.GetComponent<Text>().color = Color.white;
     }
 
     public void onExitQuitText()
     {
-    
+        
         QuitText.GetComponent<Text>().color = Color.red;
     }
 
     public void OnEnterSettingText()
     {
- 
+        BackButton.GetComponent<Text>().color = Color.white;
         SettingText.GetComponent<Text>().color = Color.white;
     }
 
     public void OnExitSettingText()
     {
-  
+        BackButton.GetComponent<Text>().color = Color.red;
         SettingText.GetComponent<Text>().color = Color.red;
     }
 

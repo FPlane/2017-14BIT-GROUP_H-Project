@@ -6,14 +6,6 @@ public class musicController : MonoBehaviour {
 
     public static musicController instance;
 
-    void FixedUpdate()
-    {
-        if (optionController.instance != null)
-        {
-            print(optionController.instance.data);
-        }
-    }
-
     // Use this for initialization
     void Start () {
         

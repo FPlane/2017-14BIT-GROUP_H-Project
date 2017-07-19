@@ -4,45 +4,28 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
-    private const string HIGH_SCORE = "highscore";
+    public const string HIGH_SCORE = "High Score";
 
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         makeInstance();
         FirstInit();
 
 
     }
-	
-	// Update is called once per frame
-	void Update () {
-
-    }
-
-    public void setHighScore(float currentDistance)
-    {
-        PlayerPrefs.SetFloat("highscore", currentDistance);
-        PlayerPrefs.Save();
-        Debug.Log(PlayerPrefs.GetFloat("highscore").ToString());
-    }
-
-    public float getHighScore()
-    {
-        return PlayerPrefs.GetFloat(HIGH_SCORE);
-    }
 
     void FirstInit()
     {
-        if(!PlayerPrefs.HasKey("FirstInit"))
+        if (!PlayerPrefs.HasKey("FirstInit"))
         {
-            PlayerPrefs.SetFloat(HIGH_SCORE, 0);
+            print("First Init key not installed");
+            PlayerPrefs.SetInt(HIGH_SCORE, 0);
             PlayerPrefs.SetInt("FirstInit", 0);
+            PlayerPrefs.Save();
         } else
         {
-            print("Game is initiated once");
-            //PlayerPrefs.DeleteKey("FirstInit");
-            //PlayerPrefs.DeleteKey(HIGH_SCORE);
+            print("First Init key installed");
         }
     }
 
@@ -58,4 +41,20 @@ public class GameManager : MonoBehaviour {
             DontDestroyOnLoad(gameObject);
         }
     }
+
+
+    public void setHighScore(int distance)
+    {
+        PlayerPrefs.SetInt(HIGH_SCORE, distance);
+        PlayerPrefs.Save();
+        //Debug.Log(PlayerPrefs.GetFloat("highscore").ToString());
+    }
+
+    public int getHighScore()
+    {
+        return PlayerPrefs.GetInt(HIGH_SCORE);
+    }
+
+
+
 }

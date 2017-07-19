@@ -32,7 +32,7 @@ public class gamePlayMananger : MonoBehaviour {
     public Button resetButton;
     public Button pauseButton;
     public Button resumeButton;
-
+    public Button backtoMenu;
 
     public Text LastDistanceText;
     public Text BestDistanceText;
@@ -71,6 +71,12 @@ public class gamePlayMananger : MonoBehaviour {
         FuelSliderUI.gameObject.SetActive(true);
 
     }
+
+    public void toTheMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 
     public void pause_Button(int distance)
     {

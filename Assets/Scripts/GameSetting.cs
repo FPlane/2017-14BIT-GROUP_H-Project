@@ -17,7 +17,8 @@ public class GameSetting : MonoBehaviour {
         firstdownload();
         PlayerPrefs.GetInt("myfirstkey");
         Debug.Log(PlayerPrefs.GetInt("myfirstkey").ToString());
-
+        print("menu load");
+        Time.timeScale = 1;
         if (PlayerPrefs.GetInt("myfirstkey") == 1)
         {
             isPlay.isOn = true;

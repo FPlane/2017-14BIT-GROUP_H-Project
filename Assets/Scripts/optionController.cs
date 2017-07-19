@@ -21,10 +21,10 @@ public class optionController : MonoBehaviour {
 
         if(PlayerPrefs.GetInt("myfirstkey") == 1)
         {
-            isPlay.isOn = false;
+            isPlay.isOn = true;
         } else
         {
-            isPlay.isOn = true;
+            isPlay.isOn = false;
         }
 
         BackButtonText.GetComponent<Text>().color = Color.red;

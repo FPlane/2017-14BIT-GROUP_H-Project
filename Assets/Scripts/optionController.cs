@@ -10,13 +10,14 @@ public class optionController : MonoBehaviour {
     // get Toggle Music 
     public Toggle isPlay;
     public Text BackButtonText;
-    public int muteIt;
+    public int data;
 
     void Start()
     {
    
 
-        PlayerPrefs.GetInt("myfirstkey");
+        data = PlayerPrefs.GetInt("myfirstkey");
+    
         Debug.Log(PlayerPrefs.GetInt("myfirstkey").ToString());
 
         if(PlayerPrefs.GetInt("myfirstkey") == 1)
@@ -82,8 +83,4 @@ public class optionController : MonoBehaviour {
         }
 
     }
-
- 
-
-
 }

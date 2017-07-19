@@ -11,12 +11,14 @@ public class GameManager : MonoBehaviour {
 	void Start () {
         makeInstance();
         FirstInit();
+
+
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+
+    }
 
     public void setHighScore(float currentDistance)
     {
@@ -34,9 +36,13 @@ public class GameManager : MonoBehaviour {
     {
         if(!PlayerPrefs.HasKey("FirstInit"))
         {
-            PlayerPrefs.GetInt("myfirstkey");
             PlayerPrefs.SetFloat(HIGH_SCORE, 0);
             PlayerPrefs.SetInt("FirstInit", 0);
+        } else
+        {
+            print("Game is initiated once");
+            //PlayerPrefs.DeleteKey("FirstInit");
+            //PlayerPrefs.DeleteKey(HIGH_SCORE);
         }
     }
 

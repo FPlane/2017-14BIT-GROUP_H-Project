@@ -30,6 +30,10 @@ public class gamePlayMananger : MonoBehaviour {
     public Button pauseButton;
     public Button resumeButton;
 
+
+    public Text LastDistanceText;
+    public Text BestDistanceText;
+
    
 
     void Start()
@@ -94,7 +98,7 @@ public class gamePlayMananger : MonoBehaviour {
     }
 
 
-    public void showGameOverPanel()
+    public void showGameOverPanel(float currentDistance)
     {
         Time.timeScale = 0;
         gameOverPanel.SetActive(true);
@@ -104,6 +108,16 @@ public class gamePlayMananger : MonoBehaviour {
         FuelSliderUI.gameObject.SetActive(false);
         Destroy(GameObject.Find("FuelDrop"));
         //Destroy(GameObject.Find("FuelDrop(Clone)"));
+
+        
+        LastDistanceText.text = currentDistance.ToString("F0") + " m";
+        if (currentDistance > GameManager.instance.getHighScore())
+        {
+
+            GameManager.instance.setHighScore(currentDistance);
+        }
+        BestDistanceText.text = GameManager.instance.getHighScore().ToString("F0") + " m";
+
     }
 
 }

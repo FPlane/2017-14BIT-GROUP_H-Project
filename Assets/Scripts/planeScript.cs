@@ -151,9 +151,14 @@ public class planeScript : MonoBehaviour {
                 if(gamePlayMananger.instance != null)
                 {
                     gamePlayMananger.instance.hidePauseButton();
-                    gamePlayMananger.instance.showGameOverPanel();
-                }
+                    gamePlayMananger.instance.showGameOverPanel(currentDistance);
+                    
+                } 
 
+                if(GameManager.instance != null)
+                {
+                    GameManager.instance.setHighScore(currentDistance);
+                }
                
            
             }

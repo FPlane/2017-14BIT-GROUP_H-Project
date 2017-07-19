@@ -14,6 +14,7 @@ public class ufoXmove : MonoBehaviour {
     void Update()
     {
         ufoMovement();
+        Destroy(gameObject, 4f);
     }
 
     void ufoMovement()

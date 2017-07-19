@@ -51,11 +51,13 @@ public class fuel : MonoBehaviour
             }
             else
             {
-                // plane stop after emptying fuel
-                //planeScript.instance.isAlive = false;
-                //Time.timeScale = 0; added to showGameOverPanel
+                // IMPORTANT !!! 
+                // uncommnent this when release 
+                // plane stop after emptying fuel 
+                // planeScript.instance.isAlive = false;
+                // Time.timeScale = 0; added to showGameOverPanel
 
-                // uncommnent this when release
+                //if plane crash, stop game, hide pause button & show gameoverPanel
                 //if (gamePlayMananger.instance != null)
                 //{
                 //    gamePlayMananger.instance.hidePauseButton();

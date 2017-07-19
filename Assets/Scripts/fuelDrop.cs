@@ -6,7 +6,7 @@ public class fuelDrop : MonoBehaviour {
 
     public static fuelDrop intance;
 
-    private float FuelUnit = 20f;
+    private float FuelUnit = 10f;
 
     public bool flag;
 
@@ -34,7 +34,7 @@ public class fuelDrop : MonoBehaviour {
         //{
         //    if (fuel.instance.planeFuel < 5.0f)
         //    { 
-                
+
         //        flag = true;
         //    }
         //    FuelUnit += 30f;
@@ -44,6 +44,7 @@ public class fuelDrop : MonoBehaviour {
         //    FuelUnit += 5f;
         //}
 
+        Destroy(gameObject, 4f);
     }
 
 

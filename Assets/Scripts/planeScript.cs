@@ -53,6 +53,8 @@ public class planeScript : MonoBehaviour {
     public Text distanceText;
     public float currentDistance;
 
+    public int distance;
+
     void Awake()
     {
         // if script isn't point to is instance
@@ -84,9 +86,13 @@ public class planeScript : MonoBehaviour {
 
             // Flight distance
             currentDistance += Time.deltaTime*10;
+            distance = (int)currentDistance;
+            //print(distance);
             
-            distanceText.text = currentDistance.ToString("F0") + " m"; // Sua cho nay F1 thanh 0
-            // add this to the pause panel
+            distanceText.text = distance.ToString("F0") + " m"; // Sua cho nay F1 thanh 0
+                                                                // add this to the pause panel
+
+
 
 
             if (didFlap) 
@@ -150,12 +156,19 @@ public class planeScript : MonoBehaviour {
 
                 if(gamePlayMananger.instance != null)
                 {
+
                     gamePlayMananger.instance.hidePauseButton();
-                    gamePlayMananger.instance.showGameOverPanel();
+                    gamePlayMananger.instance.showGameOverPanel(distance);
+                    
                 }
 
-               
-           
+                
+                else if (GameManager.instance != null)
+                {
+                    GameManager.instance.setHighScore(distance);
+                }
+
+
             }
         }
 

@@ -6,9 +6,10 @@ public class musicController : MonoBehaviour {
 
     public static musicController instance;
 
-
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
+        
+  
 
         if (instance != null)
         {
@@ -21,9 +22,7 @@ public class musicController : MonoBehaviour {
         }
 
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    
+
+
 }

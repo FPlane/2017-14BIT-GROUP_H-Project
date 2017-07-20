@@ -7,7 +7,7 @@ public class ufoXmove : MonoBehaviour {
     // Use this for initialization
     public float speed = 4f;
 	void Start () {
-		
+        Destroy(gameObject, 3f);
 	}
 
     // Update is called once per frame

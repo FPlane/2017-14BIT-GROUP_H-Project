@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour {
 	void Awake () {
         makeInstance();
         FirstInit();
+
 
 
     }
@@ -39,6 +41,7 @@ public class GameManager : MonoBehaviour {
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+    
         }
     }
 

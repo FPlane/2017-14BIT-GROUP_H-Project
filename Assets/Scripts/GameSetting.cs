@@ -36,10 +36,12 @@ public class GameSetting : MonoBehaviour {
             print("First Download key not installed");
             //PlayerPrefs.SetInt("myfirstkey", 0);
             PlayerPrefs.SetInt("firstdownload", 0);
-            
+    
+
         } else
         {
             print("First Download key installed");
+
         }
     }
 	

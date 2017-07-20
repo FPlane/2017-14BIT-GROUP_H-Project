@@ -1,18 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
     public const string HIGH_SCORE = "High Score";
+    public Button resetScore;
 
 
 	// Use this for initialization
 	void Awake () {
         makeInstance();
         FirstInit();
+    }
 
-
+    public void resetleaderboard()
+    {
+        PlayerPrefs.DeleteKey("FirstInit");
+        
+        print("Score is reset");
     }
 
     void FirstInit()
@@ -23,9 +31,11 @@ public class GameManager : MonoBehaviour {
             PlayerPrefs.SetInt(HIGH_SCORE, 0);
             PlayerPrefs.SetInt("FirstInit", 0);
             PlayerPrefs.Save();
+
         } else
         {
             print("First Init key installed");
+
         }
     }
 

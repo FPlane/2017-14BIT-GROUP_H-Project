@@ -15,7 +15,9 @@ public class menuController : MonoBehaviour {
     public GameObject Title;
     public GameObject BackButton;
     public GameObject playmusic;
+    public GameObject playbutton;
 
+    public GameObject resetGame;
 
     public Text QuitText;
     public Text SettingText;
@@ -23,11 +25,6 @@ public class menuController : MonoBehaviour {
     public void playButton()
     {
         SceneManager.LoadScene(2);
-    }
-
-    public void setting_button()
-    {
-        
     }
 
     public void exitButton()
@@ -43,10 +40,13 @@ public class menuController : MonoBehaviour {
     {
         SettingText.GetComponent<Text>().color = Color.red;
         QuitText.GetComponent<Text>().color = Color.red;
+        resetGame.GetComponent<Text>().color = Color.red;
         BackButton.gameObject.SetActive(false);
         playmusic.gameObject.SetActive(false);
+        resetGame.gameObject.SetActive(false);
+        playbutton.gameObject.SetActive(true);
 
-        if(Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.OSXPlayer)
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.OSXPlayer)
         {
             QuitText.gameObject.SetActive(true);
         } 
@@ -60,6 +60,7 @@ public class menuController : MonoBehaviour {
     {
         Application.Quit();
     }
+
     
     public void setting_game()
     {
@@ -68,9 +69,10 @@ public class menuController : MonoBehaviour {
         QuitButton.gameObject.SetActive(false);
         Title.gameObject.SetActive(false);
         SettingText.gameObject.SetActive(false);
-
+        resetGame.gameObject.SetActive(true);
         playmusic.gameObject.SetActive(true);
         BackButton.gameObject.SetActive(true);
+        playbutton.gameObject.SetActive(false);
     }
 
     public void backToMenu()
@@ -79,7 +81,9 @@ public class menuController : MonoBehaviour {
         QuitButton.gameObject.SetActive(true);
         Title.gameObject.SetActive(true);
         SettingText.gameObject.SetActive(true);
+        playbutton.gameObject.SetActive(true);
 
+        resetGame.gameObject.SetActive(false);
         playmusic.gameObject.SetActive(false);
         BackButton.gameObject.SetActive(false);
     }
@@ -96,16 +100,28 @@ public class menuController : MonoBehaviour {
         QuitText.GetComponent<Text>().color = Color.red;
     }
 
+    public void onEnterResetButton()
+    {
+        resetGame.GetComponent<Text>().color = Color.white;
+    }
+
+    public void onExitResetButton()
+    {
+        resetGame.GetComponent<Text>().color = Color.red;
+    }
+
     public void OnEnterSettingText()
     {
         BackButton.GetComponent<Text>().color = Color.white;
         SettingText.GetComponent<Text>().color = Color.white;
+        
     }
 
     public void OnExitSettingText()
     {
         BackButton.GetComponent<Text>().color = Color.red;
         SettingText.GetComponent<Text>().color = Color.red;
+        
     }
 
     //void makeSingleIT()

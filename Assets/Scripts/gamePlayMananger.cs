@@ -32,7 +32,8 @@ public class gamePlayMananger : MonoBehaviour {
     public Button resetButton;
     public Button pauseButton;
     public Button resumeButton;
-    public Button backtoMenu;
+    public Button ExitGame;
+
 
     public Text LastDistanceText;
     public Text BestDistanceText;
@@ -77,6 +78,11 @@ public class gamePlayMananger : MonoBehaviour {
         SceneManager.LoadScene(0);
     }
 
+    public void quitTheGame()
+    {
+        Application.Quit();
+    }
+
 
     public void pause_Button(int distance)
     {
@@ -86,8 +92,22 @@ public class gamePlayMananger : MonoBehaviour {
         gameOverPanel.SetActive(true);
         GameOverUI.gameObject.SetActive(false);
         PauseUI.gameObject.SetActive(true);
+        DistanceUI.gameObject.SetActive(false);
+        FuelDropUI.gameObject.SetActive(false);
+        FuelSliderUI.gameObject.SetActive(false);
 
-        if(planeScript.instance != null)
+
+
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.OSXPlayer)
+        {
+            ExitGame.gameObject.SetActive(true);
+        }
+        else if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            ExitGame.gameObject.SetActive(false);
+        }
+
+        if (planeScript.instance != null)
         {
             LastDistanceText.text = planeScript.instance.distance.ToString("F0") + " m";
         }
@@ -104,6 +124,10 @@ public class gamePlayMananger : MonoBehaviour {
         pauseButton.gameObject.SetActive(true);
         PauseUI.gameObject.SetActive(false);
         gameOverPanel.SetActive(false);
+        DistanceUI.gameObject.SetActive(true);
+        FuelDropUI.gameObject.SetActive(true);
+        FuelSliderUI.gameObject.SetActive(true);
+ 
     }
 
     public void reset_Button()

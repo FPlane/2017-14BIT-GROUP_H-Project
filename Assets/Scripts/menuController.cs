@@ -35,20 +35,25 @@ public class menuController : MonoBehaviour {
         Application.Quit();
     }
 
-    void Awake()
-    {
 
-    }
 
     
 
-    void Start()
+    void Awake()
     {
         SettingText.GetComponent<Text>().color = Color.red;
         QuitText.GetComponent<Text>().color = Color.red;
         BackButton.gameObject.SetActive(false);
         playmusic.gameObject.SetActive(false);
 
+        if(Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.OSXPlayer)
+        {
+            QuitText.gameObject.SetActive(true);
+        } 
+        else if(Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            QuitText.gameObject.SetActive(false);
+        }
     }
 
     public void Quit_game()

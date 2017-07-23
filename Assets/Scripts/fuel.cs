@@ -19,6 +19,8 @@ public class fuel : MonoBehaviour
     public float planeFuel;
     public float fuelBurn;
 
+    public Text BestDistanceText;
+
     //public SpriteRenderer rend;
 
     // Use this for initialization
@@ -51,21 +53,38 @@ public class fuel : MonoBehaviour
             }
             else
             {
-                // plane stop after emptying fuel
-                //planeScript.instance.isAlive = false;
-                //Time.timeScale = 0; added to showGameOverPanel
-
-                // uncommnent this when release
-                //if (gamePlayMananger.instance != null)
-                //{
-                //    gamePlayMananger.instance.hidePauseButton();
-                //    gamePlayMananger.instance.showGameOverPanel();
-                //}
+                // IMPORTANT !!! 
+                // uncommnent this when release 
+                // plane stop after emptying fuel 
+                // planeScript.instance.isAlive = false;
+                Time.timeScale = 0;
+                if(planeScript.instance != null)
+                {
+                    int distance = planeScript.instance.distance;
+                    GameOver(distance);
+                }
+                //if plane crash, stop game, hide pause button & show gameoverPanel
+                
 
             }
         }
     }
 
+    public void GameOver(int distance)
+    {
+        if (gamePlayMananger.instance != null)
+        {
+            gamePlayMananger.instance.hidePauseButton();
+            gamePlayMananger.instance.showGameOverPanel(distance);
+        }
+
+        if (distance > GameManager.instance.getHighScore())
+        {
+
+            GameManager.instance.setHighScore(distance);
+        }
+        BestDistanceText.text = GameManager.instance.getHighScore().ToString("F0") + " m";
+    }
 
     void getReference()
     {

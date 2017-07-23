@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="fuel">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAAAAAAAAQAACAiAgAAABAABAAAAAEAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\fuel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityEngine.MonoBehaviour" Collapsed="true">
+    <Position X="13.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="fuelDrop">
+    <Position X="18.5" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAIAAAAAAAEAgAAAAAAAAAAIAAEA=</HashCode>
+      <FileName>Assets\Scripts\fuelDrop.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="guideController">
+    <Position X="16.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\guideController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="planeScript">
+    <Position X="20" Y="6.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAICAAAAiQAAAAAIAIEAAgQAFxCEAAAAQAgAJEAAEI=</HashCode>
+      <FileName>Assets\Scripts\planeScript.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="updown">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAABCAAAAAAAAAAAAAAAAgAAAgIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\updown.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ufoXmove">
+    <Position X="5.5" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAIAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ufoXmove.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UFOSpawner">
+    <Position X="5.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACQAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UFOSpawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="towerSpawner">
+    <Position X="5.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACQAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\towerSpawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="towerCollector">
+    <Position X="5.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAwQIAAAEAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\towerCollector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="snaptoGrids">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\snaptoGrids.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="resetButton">
+    <Position X="9.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\resetButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="musicController">
+    <Position X="11.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\musicController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="menuController">
+    <Position X="17.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BQAAAQAIIAAABEABIAABAAgAAABAEgIIEAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\menuController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="menuBG">
+    <Position X="11.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAACAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\menuBG.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameSetting">
+    <Position X="7.75" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAIAAQAAAAAAAAACABAAAAAAAAAAAAAgEA=</HashCode>
+      <FileName>Assets\Scripts\GameSetting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="gamePlayMananger">
+    <Position X="15.25" Y="9" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>ABAQACAAAAKIEAARDAAAAIAAAABARAQAAACAAAJABEQ=</HashCode>
+      <FileName>Assets\Scripts\gamePlayMananger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager">
+    <Position X="10" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAwAAAAAAAAAIgBAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cameraScript">
+    <Position X="12.25" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAACAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\cameraScript.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="bgCollector">
+    <Position X="16.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAQAAAAAAAEAAAAAAAgAAAAAAAFA=</HashCode>
+      <FileName>Assets\Scripts\bgCollector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

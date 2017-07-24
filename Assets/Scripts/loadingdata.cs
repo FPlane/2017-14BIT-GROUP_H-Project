@@ -10,12 +10,13 @@ public class loadingdata : MonoBehaviour {
 	void Start () {
         makeIntance();
         loading();
-        SceneManager.LoadSceneAsync(1);
+        StartCoroutine("loading");
     }
 	
 	// Update is called once per frame
 	void Update () {
-		if(frame_rate != Application.targetFrameRate)
+ 
+        if (frame_rate != Application.targetFrameRate)
         {
             Application.targetFrameRate = frame_rate;
         }
@@ -23,9 +24,10 @@ public class loadingdata : MonoBehaviour {
 
     IEnumerator loading()
     {
-        print(Time.time);
-        yield return new WaitForSeconds(10);
-        print(Time.time);
+
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadSceneAsync(1);
+
     }
 
     private void makeIntance()

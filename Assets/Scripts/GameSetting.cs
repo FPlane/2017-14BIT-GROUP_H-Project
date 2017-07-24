@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GameSetting : MonoBehaviour {
+
     public static GameSetting instance;
 
 

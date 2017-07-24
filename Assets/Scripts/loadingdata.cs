@@ -9,10 +9,11 @@ public class loadingdata : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         makeIntance();
-        loading();
-        SceneManager.LoadSceneAsync(1);
+        StartCoroutine("loading");
     }
 	
+
+    
 	// Update is called once per frame
 	void Update () {
 		if(frame_rate != Application.targetFrameRate)
@@ -24,7 +25,8 @@ public class loadingdata : MonoBehaviour {
     IEnumerator loading()
     {
         print(Time.time);
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadSceneAsync(1);
         print(Time.time);
     }
 

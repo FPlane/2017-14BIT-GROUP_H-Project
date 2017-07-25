@@ -35,10 +35,6 @@ public class menuController : MonoBehaviour {
         Application.Quit();
     }
 
-
-
-    
-
     void Awake()
     {
         SettingText.GetComponent<Text>().color = Color.red;
@@ -76,7 +72,15 @@ public class menuController : MonoBehaviour {
     public void backToMenu()
     {
         plane.gameObject.SetActive(true);
-        QuitButton.gameObject.SetActive(true);
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.OSXPlayer)
+        {
+            QuitText.gameObject.SetActive(true);
+        }
+        else if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            QuitText.gameObject.SetActive(false);
+        }
+
         Title.gameObject.SetActive(true);
         SettingText.gameObject.SetActive(true);
 

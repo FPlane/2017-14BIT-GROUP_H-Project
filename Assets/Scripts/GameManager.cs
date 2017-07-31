@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour {
         makeInstance();
         FirstInit();
 
+        //To reset high score, remove this comment once
+        //PlayerPrefs.DeleteKey("FirstInit");
 
     }
 

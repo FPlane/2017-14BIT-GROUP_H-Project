@@ -15,7 +15,7 @@ public class menuController : MonoBehaviour {
     public GameObject Title;
     public GameObject BackButton;
     public GameObject playmusic;
-
+    public GameObject planeButton;
 
     public Text QuitText;
     public Text SettingText;
@@ -25,10 +25,6 @@ public class menuController : MonoBehaviour {
         SceneManager.LoadScene(2);
     }
 
-    public void setting_button()
-    {
-        
-    }
 
     public void exitButton()
     {
@@ -64,13 +60,14 @@ public class menuController : MonoBehaviour {
         QuitButton.gameObject.SetActive(false);
         Title.gameObject.SetActive(false);
         SettingText.gameObject.SetActive(false);
-
+        planeButton.gameObject.SetActive(false); //play button hide when click setting
         playmusic.gameObject.SetActive(true);
         BackButton.gameObject.SetActive(true);
     }
 
     public void backToMenu()
     {
+        planeButton.gameObject.SetActive(true);
         plane.gameObject.SetActive(true);
         if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.OSXPlayer)
         {
